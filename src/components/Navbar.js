@@ -1,6 +1,7 @@
 import "./Navbar.css";
 
 const Navbar = () => {
+
   return (
     <header className="navbar">
       <div className="navbar-rectangle" />

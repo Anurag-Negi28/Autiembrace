@@ -1,39 +1,28 @@
-import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ToDoFrame from "../components/ToDoFrame";
 import "./AutiEmbrace.css";
+import React, { useState, useEffect } from "react";
 
 const AutiEmbrace = () => {
   const [completionMessageValue, setCompletionMessageValue] = useState("");
+  const [quote, setQuote] = useState("");
+
   useEffect(() => {
-    const scrollAnimElements = document.querySelectorAll(
-      "[data-animate-on-scroll]",
-    );
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting || entry.intersectionRatio > 0) {
-            const targetElement = entry.target;
-            targetElement.classList.add("animate");
-            observer.unobserve(targetElement);
-          }
-        }
-      },
-      {
-        threshold: 0.15,
-      },
-    );
-
-    for (let i = 0; i < scrollAnimElements.length; i++) {
-      observer.observe(scrollAnimElements[i]);
-    }
-
-    return () => {
-      for (let i = 0; i < scrollAnimElements.length; i++) {
-        observer.unobserve(scrollAnimElements[i]);
-      }
-    };
+    fetchRandomQuote();
   }, []);
+
+  const fetchRandomQuote = async () => {
+    try {
+      const response = await fetch('http://localhost:3002/api/quotes/random');
+      if (!response.ok) {
+        throw new Error('Failed to fetch quote');
+      }
+      const data = await response.json();
+      setQuote(data.quote_text);
+    } catch (error) {
+      console.error('Error fetching quote:', error);
+    }
+  };
   return (
     <div className="autiembrace">
       <section className="auti-embrace-container">
@@ -44,7 +33,7 @@ const AutiEmbrace = () => {
               <div className="quote-frame" />
               <b className="hi-user-name-container">
                 <span>
-                  <p className="hi-user-name1">Hi [user name],</p>
+                  <p className="hi-user-name1">Hi Anurag,</p>
                   <p className="lets-spread-some">
                     Let’s spread some happiness !
                   </p>
@@ -54,9 +43,9 @@ const AutiEmbrace = () => {
             <div className="hi-user-name2">
               <div className="quote-rectangle" />
               <div className="quote-of-the-day-wrapper">
-                <b className="quote-of-the">{`Quote of the day :          `}</b>
+                <b className="quote-of-the">{`Quote of the day :`}</b>
               </div>
-              <b className="an-apple-a">“An apple a day keeps Doctor away”</b>
+              <b className="an-apple-a">{quote}</b>
             </div>
           </div>
           <div className="to-do-tasks">
