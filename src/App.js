@@ -6,6 +6,9 @@ import {
   useLocation,
 } from "react-router-dom";
 import AutiEmbrace from "./pages/AutiEmbrace";
+import LoginPage from "./pages/LoginPage";
+import SignUp from "./pages/SignUp";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const action = useNavigationType();
@@ -27,6 +30,18 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/-login-page":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/sign-up":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/landingpage":
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -35,7 +50,7 @@ function App() {
 
     if (metaDescription) {
       const metaDescriptionTag = document.querySelector(
-        'head > meta[name="description"]',
+        'head > meta[name="description"]'
       );
       if (metaDescriptionTag) {
         metaDescriptionTag.content = metaDescription;
@@ -46,6 +61,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<AutiEmbrace />} />
+      <Route path="/-login-page" element={<LoginPage />} />
+      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/landingpage" element={<LandingPage />} />
     </Routes>
   );
 }
