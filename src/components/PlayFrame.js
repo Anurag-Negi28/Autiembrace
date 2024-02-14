@@ -13,7 +13,7 @@ const PlayFrame = () => {
 
   const fetchRandomQuote = async () => {
     try {
-      const response = await fetch('http://localhost:3002/api/quotes/random');
+      const response = await fetch('http://localhost:8080/api/quotes/random');
       if (!response.ok) {
         throw new Error('Failed to fetch quote');
       }

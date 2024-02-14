@@ -50,7 +50,7 @@ app.post('/login', async (req, res) => {
 connect().then(() => {
     app.use('/', dbRoutes);
 
-    const PORT = process.env.PORT ||  8080;
+    const PORT = process.env.PORT ||  3002;
     app.listen(PORT, () => {
         console.log(`Server is running on PORT ${PORT}`);
     });
