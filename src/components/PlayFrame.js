@@ -1,10 +1,7 @@
-import Navbar from "../components/Navbar";
-import ToDoFrame from "../components/ToDoFrame";
-import "./AutiEmbrace.css";
+import "../pages/AutiEmbrace.css";
 import React, { useState, useEffect } from "react";
 
 const PlayFrame = () => {
-  const [completionMessageValue, setCompletionMessageValue] = useState("");
   const [quote, setQuote] = useState("");
 
   useEffect(() => {
