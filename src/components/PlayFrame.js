@@ -1,4 +1,28 @@
+import Navbar from "../components/Navbar";
+import ToDoFrame from "../components/ToDoFrame";
+import "./AutiEmbrace.css";
+import React, { useState, useEffect } from "react";
+
 const PlayFrame = () => {
+  const [completionMessageValue, setCompletionMessageValue] = useState("");
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    fetchRandomQuote();
+  }, []);
+
+  const fetchRandomQuote = async () => {
+    try {
+      const response = await fetch('http://localhost:3002/api/quotes/random');
+      if (!response.ok) {
+        throw new Error('Failed to fetch quote');
+      }
+      const data = await response.json();
+      setQuote(data.quote_text);
+    } catch (error) {
+      console.error('Error fetching quote:', error);
+    }
+  };
   return (
     <div className="flex-1 flex flex-row flex-wrap items-start justify-start gap-[20px] max-w-full text-left text-41xl text-black font-outfit">
       <div className="flex-1 flex flex-col items-start justify-start gap-[46px] min-w-[463px] max-w-full mq750:gap-[46px] mq750:min-w-full">
@@ -24,7 +48,7 @@ const PlayFrame = () => {
                 src="/quotebox@2x.png"
               />
               <h1 className="m-0 w-[475px] h-[415px] relative text-inherit leading-[40px] font-bold font-inherit flex items-center justify-center shrink-0 max-w-full z-[2] mq450:text-5xl mq450:leading-[24px] mq1050:text-13xl mq1050:leading-[32px]">
-                An apple a day keeps doctor away
+                {quote}
               </h1>
               <div className="w-[302px] flex flex-row items-start justify-start py-0 px-16 box-border mt-[-98px] text-base font-montserrat mq450:pl-5 mq450:pr-5 mq450:box-border">
                 <i className="flex-1 relative leading-[31px] z-[2]">
