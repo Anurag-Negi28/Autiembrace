@@ -1,37 +1,67 @@
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const onPlayButtonClick = useCallback(() => {
+    window.open("/playgames");
+  }, []);
+
+  const onPlayRectangleClick = useCallback(() => {
+    navigate("/playgames");
+  }, [navigate]);
+
   return (
-    <div className="self-stretch flex flex-row items-center justify-between pt-[30px] pb-[38px] pr-12 pl-[41px] box-border sticky gap-[20px] max-w-full top-[0] z-[99] mq750:pr-6 mq750:box-border">
-      <div className="h-full w-full absolute my-0 mx-[!important] top-[0px] right-[0.5px] bottom-[0px] left-[-0.5px] bg-mistyrose [filter:blur(46px)]" />
-      <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[31px] w-60 relative text-6xl leading-[27.5px] font-bold font-montserrat text-dimgray text-center flex items-center justify-center shrink-0 whitespace-nowrap z-[1]">
+    <header className="absolute w-[calc(100%_-_1px)] top-[0px] right-[1px] left-[0px] h-[103px] text-center text-6xl text-dimgray font-montserrat">
+      <div className="absolute w-full top-[0px] right-[0px] left-[0px] bg-mistyrose [filter:blur(46px)] h-[103px]" />
+      <h1 className="m-0 absolute top-[32px] left-[41px] text-inherit leading-[27.5px] font-bold font-inherit flex items-center justify-center w-60 h-[31px]">
         AutiEmbrace
+      </h1>
+      <button
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[333px] w-[121px] h-[35px]"
+        autoFocus={true}
+      >
+        <div className="absolute top-[0px] right-[0px] rounded-31xl bg-powderblue-100 w-[121px] h-[35px]" />
+        <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[121px] h-[35px]">
+          Connect
+        </b>
       </button>
-      <div className="flex flex-row items-start justify-start gap-[41px] max-w-full mq750:gap-[41px] mq1050:hidden">
-        <button className="cursor-pointer [border:none] p-0 bg-powderblue-100 w-[101px] rounded-31xl flex flex-row items-center justify-center z-[1] hover:bg-cadetblue-100">
-          <div className="h-[35px] w-[101px] relative rounded-31xl bg-powderblue-100 hidden" />
-          <b className="h-[35px] flex-1 relative text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center z-[2]">
-            Learn
-          </b>
-        </button>
-        <button className="cursor-pointer [border:none] p-0 bg-powderblue-100 w-[121px] rounded-31xl flex flex-row items-center justify-center z-[1] hover:bg-cadetblue-100">
-          <div className="h-[35px] w-[121px] relative rounded-31xl bg-powderblue-100 hidden" />
-          <b className="h-[35px] flex-1 relative text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center z-[2]">
-            Connect
-          </b>
-        </button>
-        <button className="cursor-pointer [border:none] p-0 bg-powderblue-100 w-[102px] rounded-31xl flex flex-row items-center justify-center z-[1] hover:bg-cadetblue-100">
-          <div className="h-[35px] w-[102px] relative rounded-31xl bg-powderblue-100 hidden" />
-          <b className="h-[35px] flex-1 relative text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center z-[2]">
-            Play
-          </b>
-        </button>
-        <button className="cursor-pointer [border:none] p-0 bg-powderblue-100 w-[101px] rounded-31xl flex flex-row items-center justify-center z-[1] hover:bg-cadetblue-100">
-          <div className="h-[33px] w-[101px] relative rounded-31xl bg-powderblue-100 hidden" />
-          <b className="h-[33px] flex-1 relative text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center z-[2]">
-            Relax
-          </b>
-        </button>
-      </div>
-    </div>
+      <button
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[190px] w-[102px] h-[35px]"
+        autoFocus={true}
+        onClick={onPlayButtonClick}
+      >
+        <div
+          className="absolute top-[0px] right-[0px] rounded-31xl bg-powderblue-100 w-[102px] h-[35px] cursor-pointer"
+          onClick={onPlayRectangleClick}
+        />
+        <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[102px] h-[35px]">
+          Play
+        </b>
+      </button>
+      <button
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[48px] w-[101px] h-[33px]"
+        autoFocus={true}
+      >
+        <div className="absolute top-[0px] right-[0px] rounded-31xl bg-powderblue-100 w-[101px] h-[33px]" />
+        <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[101px] h-[33px]">
+          Relax
+        </b>
+      </button>
+      <button
+        className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[495px] w-[101px] h-[35px]"
+        autoFocus={true}
+      >
+        <button
+          className="cursor-pointer [border:none] p-0 bg-powderblue-100 absolute top-[0px] right-[0px] rounded-31xl w-[101px] h-[35px]"
+          autoFocus={true}
+        />
+        <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[101px] h-[35px]">
+          Learn
+        </b>
+      </button>
+    </header>
   );
 };
 
