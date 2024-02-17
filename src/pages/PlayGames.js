@@ -33,7 +33,6 @@ const PlayGames = () => {
         </Link>
         <button
           className="cursor-pointer [border:none] p-0 bg-[transparent] absolute w-[calc(100%_-_1338px)] top-[30px] right-[48px] left-[1290px] h-[33px]"
-          autoFocus={true}
           onClick={onHomeButtonClick}
         >
           <div className="absolute w-full top-[0px] right-[0px] left-[0px] rounded-31xl bg-powderblue-100 h-[33px]" />
@@ -45,9 +44,9 @@ const PlayGames = () => {
           </b>
         </button>
       </header>
-      <footer className="absolute w-[calc(100%_-_1px)] right-[1px] bottom-[0px] left-[0px] h-[50px] text-center text-3xl text-black font-montserrat">
-        <div className="absolute w-full right-[0px] bottom-[0px] left-[0px] bg-gainsboro h-[50px]" />
-        <div className="absolute w-[calc(100%_-_1215px)] bottom-[0px] left-[608px] whitespace-pre-wrap flex items-center h-[50px]">
+      <footer className="absolute w-[calc(100%_-_1px)] right-[1px] bottom-[0px] left-[0px] h-[59px] text-center text-3xl text-black font-montserrat">
+        <div className="absolute w-full right-[0px] bottom-[0px] left-[0px] bg-gainsboro h-[59px]" />
+        <div className="absolute w-[calc(100%_-_1215px)] bottom-[0px] left-[608px] whitespace-pre-wrap flex items-center h-[59px]">
           <span className="w-full">
             <span>{`©  `}</span>
             <span className="text-lg">AutiEmbrace</span>

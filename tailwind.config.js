@@ -22,7 +22,6 @@ module.exports = {
           "200": "rgba(184, 213, 195, 0.5)",
         },
         mediumaquamarine: "#85dcb2",
-        lightpink: "#ffbab6",
       },
       spacing: {},
       fontFamily: {
@@ -35,7 +34,6 @@ module.exports = {
         "3xs": "10px",
         "21xl": "40px",
         "31xl": "50px",
-        "186xl": "205px",
         "54xl": "73px",
       },
     },
