@@ -5,10 +5,11 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import AutiEmbrace from "./pages/AutiEmbrace";
-import LoginPage from "./pages/LoginPage";
-import SignUp from "./pages/SignUp";
 import LandingPage from "./pages/LandingPage";
+import SignUp from "./pages/SignUp";
+import LoginPage from "./pages/LoginPage";
+import AutiEmbrace from "./pages/AutiEmbrace";
+import PlayGames from "./pages/PlayGames";
 
 function App() {
   const action = useNavigationType();
@@ -30,15 +31,19 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/-login-page":
-        title = "";
-        metaDescription = "";
-        break;
       case "/sign-up":
         title = "";
         metaDescription = "";
         break;
-      case "/landingpage":
+      case "/-login-page":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/autiembrace":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/playgames":
         title = "";
         metaDescription = "";
         break;
@@ -60,10 +65,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<AutiEmbrace />} />
-      <Route path="/-login-page" element={<LoginPage />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/landingpage" element={<LandingPage />} />
+      <Route path="/-login-page" element={<LoginPage />} />
+      <Route path="/autiembrace" element={<AutiEmbrace />} />
+      <Route path="/playgames" element={<PlayGames />} />
     </Routes>
   );
 }
