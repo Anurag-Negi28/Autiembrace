@@ -21,7 +21,7 @@ const LandingPage = () => {
   }, [navigate]);
 
   return (
-    <div className="w-full relative bg-lightsteelblue overflow-hidden flex flex-col items-start justify-start py-0 pr-px pl-0 box-border gap-[221px] tracking-[normal] mq750:gap-[221px] mq450:gap-[221px]">
+    <div className="w-full relative bg-lightsteelblue overflow-hidden flex flex-col items-start justify-start py-0 pr-px pl-0 box-border gap-[221px] tracking-[normal] mq450:gap-[221px] mq750:gap-[221px]">
       <main className="self-stretch flex flex-col items-center justify-start gap-[44px] shrink-0 max-w-full mq750:gap-[44px]">
         <header className="self-stretch h-[103px] relative bg-mistyrose [filter:blur(46px)]" />
         <section className="w-[1380px] flex flex-row flex-wrap items-end justify-start py-0 px-5 box-border gap-[20px] max-w-full text-left text-lg text-gray-100 font-heading-bold-6">
@@ -31,7 +31,7 @@ const LandingPage = () => {
                 <div className="w-[209px] h-[37px] relative tracking-[-0.02em] leading-[150%] font-semibold flex items-center shrink-0">
                   AutiEmbrace
                 </div>
-                <h3 className="m-0 self-stretch relative text-11xl tracking-[2px] leading-[120%] font-normal font-montserrat text-dimgray mq750:text-5xl mq750:leading-[29px] mq450:text-lg mq450:leading-[22px]">
+                <h3 className="m-0 self-stretch relative text-[30px] tracking-[2px] leading-[120%] font-normal font-montserrat text-dimgray mq450:text-lg mq450:leading-[22px] mq750:text-5xl mq750:leading-[29px]">
                   Everyone deserves a chance to connect, learn, and grow. So we
                   present AutiEmbrace, a platform designed with care and
                   understanding for individuals on the autism spectrum. Our
