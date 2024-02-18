@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import Navbar from "../components/Navbar";
 import PlayFrame from "../components/PlayFrame";
 import { useNavigate } from "react-router-dom";
+import Todo from '../components/Todo';
 
 const AutiEmbrace = () => {
   const navigate = useNavigate();
@@ -24,92 +25,9 @@ const AutiEmbrace = () => {
       <section className="self-stretch flex flex-row items-start justify-start pt-0 pb-[66px] pr-0.5 pl-0 box-border max-w-full mq750:pb-7 mq750:box-border mq1050:pb-[43px] mq1050:box-border">
         <PlayFrame />
       </section>
-      <section className="self-stretch flex flex-row items-start justify-start pt-0 px-0 pb-[21px] box-border max-w-full text-left text-41xl text-black font-montserrat">
-        <div className="flex-1 flex flex-row items-start justify-start pt-6 px-[50px] pb-7 box-border relative gap-[19px] max-w-full mq1125:flex-wrap mq750:pl-[25px] mq750:pr-[25px] mq750:box-border mq1050:pt-5 mq1050:pb-5 mq1050:box-border">
-          <div className="h-full w-full absolute my-0 mx-[!important] top-[0px] right-[0px] bottom-[0px] left-[0px] flex items-center justify-center z-[0]">
-            <img
-              className="h-full w-full max-w-full overflow-hidden max-h-full object-contain absolute left-[0px] top-[0px] [transform:scale(1.031)]"
-              loading="eager"
-              alt=""
-              src="/notesbgimg@2x.png"
-            />
-          </div>
-          <div className="flex-1 rounded-31xl bg-powderblue-200 flex flex-col items-center justify-start pt-[33px] px-0 pb-[62px] box-border gap-[94px] max-w-full z-[1] mq750:gap-[94px] mq450:gap-[94px] mq450:pt-5 mq450:pb-[26px] mq450:box-border mq1050:pt-[21px] mq1050:pb-10 mq1050:box-border">
-            <div className="self-stretch h-[908px] relative rounded-31xl bg-powderblue-200 hidden" />
-            <div className="w-[516px] flex flex-row items-start justify-start max-w-full">
-              <h1 className="m-0 w-[457px] relative text-inherit leading-[60px] font-bold font-inherit inline-block shrink-0 max-w-full z-[2] mq450:text-17xl mq450:leading-[36px] mq1050:text-29xl mq1050:leading-[48px]">
-                To do list :
-              </h1>
-            </div>
-            <div className="self-stretch flex flex-col items-start justify-start max-w-full text-31xl">
-              <h1 className="m-0 self-stretch h-[631px] relative text-inherit leading-[50px] font-normal font-inherit flex items-center shrink-0 z-[2] mq450:text-11xl mq450:leading-[30px] mq1050:text-21xl mq1050:leading-[40px]">
-                <ul className="m-0 font-inherit text-inherit pl-[67px]">
-                  <li className="mb-[15px]">Wake up</li>
-                  <li className="mb-[15px]">Breakfast</li>
-                  <li className="mb-[15px]">Get ready for school</li>
-                  <li className="mb-[15px]">Time to play</li>
-                  <li className="mb-[15px]">Time to study</li>
-                  <li className="mb-[15px]">Dinner</li>
-                  <li>Sleep time</li>
-                </ul>
-              </h1>
-              <div className="w-[595px] flex flex-row items-start justify-start py-0 px-7 box-border max-w-full mt-[-22px]">
-                <div className="flex-1 flex flex-row items-start justify-between gap-[20px] max-w-full mq750:flex-wrap">
-                  <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[50px] w-[199px] flex flex-row items-start justify-start z-[2]">
-                    <div
-                      className="self-stretch flex-1 relative rounded-31xl bg-mediumaquamarine cursor-pointer"
-                      onClick={onAddrectangleaddtaskClick}
-                    />
-                    <div className="h-[50px] flex-1 relative text-xl leading-[31px] font-montserrat text-black text-center flex items-center justify-center z-[1] ml-[-199px] mq450:text-base mq450:leading-[25px]">
-                      Add Task
-                    </div>
-                  </button>
-                  <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[50px] w-[199px] flex flex-row items-start justify-start z-[2]">
-                    <div
-                      className="self-stretch flex-1 relative rounded-31xl bg-mediumaquamarine cursor-pointer"
-                      onClick={onDeleteRectangleClick}
-                    />
-                    <div className="h-[50px] flex-1 relative text-xl leading-[31px] font-montserrat text-black text-center flex items-center justify-center z-[1] ml-[-199px] mq450:text-base mq450:leading-[25px]">
-                      Delete Task
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex-[0.8275] rounded-31xl bg-powderblue-200 flex flex-col items-center justify-start pt-[33px] pb-[62px] pr-0 pl-[114px] box-border max-w-full z-[1] mq750:pl-[57px] mq750:box-border mq750:flex-1 mq450:pl-5 mq450:pt-5 mq450:pb-[26px] mq450:box-border mq1050:pt-[21px] mq1050:pb-10 mq1050:box-border">
-            <div className="w-[661px] h-[908px] relative rounded-31xl bg-powderblue-200 hidden max-w-full" />
-            <div className="self-stretch flex flex-col items-start justify-start gap-[72px] max-w-full mq750:gap-[72px] mq450:gap-[72px]">
-              <div className="w-[475px] flex flex-row items-start justify-start py-0 px-[9px] box-border max-w-full">
-                <h1 className="m-0 flex-1 relative text-inherit leading-[60px] font-bold font-inherit inline-block [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] max-w-full z-[2] mq450:text-17xl mq450:leading-[36px] mq1050:text-29xl mq1050:leading-[48px]">
-                  Description
-                </h1>
-              </div>
-              <div className="self-stretch h-[631px] relative text-31xl leading-[50px] flex items-center shrink-0 z-[2] mq450:text-11xl mq450:leading-[30px] mq1050:text-21xl mq1050:leading-[40px]">
-                <span>
-                  <p className="[margin-block-start:0] [margin-block-end:15px]">
-                    Date : 07-02-2024
-                  </p>
-                  <p className="[margin-block-start:0] [margin-block-end:15px]">
-                    Time : 16:51
-                  </p>
-                </span>
-              </div>
-            </div>
-            <div className="w-[313px] h-[50px] flex flex-row items-start justify-start">
-              <button className="cursor-pointer [border:none] p-0 bg-[transparent] self-stretch w-[199px] flex flex-row items-start justify-start z-[2]">
-                <div
-                  className="self-stretch flex-1 relative rounded-31xl bg-mediumaquamarine cursor-pointer"
-                  onClick={onNormsnavigatortextClick}
-                />
-                <div className="h-[50px] flex-1 relative text-xl leading-[31px] font-montserrat text-black text-center flex items-center justify-center z-[1] ml-[-199px] mq450:text-base mq450:leading-[25px]">
-                  Edit
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <Todo />
+      
       <section className="w-[1380px] flex flex-row items-start justify-start pt-0 px-5 pb-[17px] box-border gap-[18px] max-w-full text-left text-41xl text-dimgray font-montserrat mq1125:flex-wrap">
         <div className="flex-[0.7197] rounded-31xl bg-powderblue-100 flex flex-col items-center justify-start pt-[87px] pb-[97px] pr-[113px] pl-[72px] box-border gap-[33px] min-w-[429px] max-w-full mq1125:flex-1 mq750:gap-[33px] mq750:pl-9 mq750:pr-14 mq750:box-border mq750:min-w-full mq450:pt-[37px] mq450:pr-5 mq450:pb-[41px] mq450:box-border mq1050:pt-[57px] mq1050:pb-[63px] mq1050:box-border">
           <div className="w-[660px] h-[908px] relative rounded-31xl bg-powderblue-100 hidden max-w-full" />
