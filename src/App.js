@@ -5,13 +5,15 @@ import { ColorPicker, DrawingCanvas } from './pages/DrawingComponents';
 import GameComponent from './pages/GameComponent';   
 import LandingPage from './pages/LandingPage';
 import SignUp from './pages/SignUp';
+import RockPaperScissors from './pages/RockPaperScissors'; 
+import TicTacToe from './pages/TicTacToe';
 import LoginPage from './pages/LoginPage';
 import AutiEmbrace from './pages/AutiEmbrace';
 import PlayGames from './pages/PlayGames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
-function CombinedApp() {
+function App() {
   const [color, setColor] = useState('#000000'); // Default color black
   const [drawingData, setDrawingData] = useState([]);
   const [toolMode, setToolMode] = useState('pen'); // Default tool is pen
@@ -61,6 +63,15 @@ function CombinedApp() {
         metaDescription = 'Play the game.';
         break;
       case '/memoryGame': 
+        title = 'Memory Game';
+        metaDescription = 'Play the memory game.';
+        break;
+      case '/tt': 
+        title = 'fghuiop';
+        metaDescription = 'Play the memory game.';
+        break;
+
+      case '/rps': 
         title = 'Memory Game';
         metaDescription = 'Play the memory game.';
         break;
@@ -133,8 +144,10 @@ function CombinedApp() {
         </div>
       } />
       <Route path="/memoryGame" element={<MemoryGame />} /> 
+      <Route path="/tt" element={<TicTacToe />} />
+      <Route path="/rps" element={<RockPaperScissors />} />
     </Routes>
   );
 }
 
-export default CombinedApp;
+export default App;
