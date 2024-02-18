@@ -1,20 +1,49 @@
 import { useState, useCallback } from "react";
 import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC7RM0ajoGtd51PEH6QqItl-CQ__kXWwjk",
+  authDomain: "autiembrace-auth.firebaseapp.com",
+  projectId: "autiembrace-auth",
+  storageBucket: "autiembrace-auth.appspot.com",
+  messagingSenderId: "1007870745477",
+  appId: "1:1007870745477:web:f1c86e5691066b24e302ec",
+  measurementId: "G-5XG7B7LYED",
+};
+
+const app = initializeApp(firebaseConfig);
+// const auth = getAuth(app);
 
 const LoginPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        navigate("/autiembrace");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
   const handleShowPasswordClick = () => {
     setShowPassword(!showPassword);
   };
 
   const onCreateAccountClick = useCallback(() => {
     navigate("/sign-up");
-  }, [navigate]);
-
-  const onRectangleButtonClick = useCallback(() => {
-    navigate("/autiembrace");
   }, [navigate]);
 
   return (
@@ -37,7 +66,7 @@ const LoginPage = () => {
         <button
           className="cursor-pointer [border:none] p-0 bg-palevioletred absolute top-[calc(50%_+_118px)] left-[calc(50%_-_246px)] rounded-3xs w-[500px] h-[50px]"
           autoFocus={true}
-          onClick={onRectangleButtonClick}
+          onClick={handleLogin}
         />
         <Link
           className="cursor-pointer [text-decoration:none] absolute top-[calc(50%_+_131px)] left-[calc(50%_-_28px)] text-xl text-[inherit]"
@@ -50,6 +79,8 @@ const LoginPage = () => {
             className="[border:none] bg-[transparent] absolute top-[calc(50%_-_80.5px)] left-[calc(50%_-_250px)]"
             color="primary"
             placeholder="username@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             variant="outlined"
             type="email"
             sx={{ "& .MuiInputBase-root": { height: "50px" }, width: "500px" }}
@@ -61,6 +92,8 @@ const LoginPage = () => {
             className="[border:none] bg-[transparent] absolute top-[calc(50%_+_25.5px)] left-[calc(50%_-_250px)]"
             color="primary"
             placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             variant="outlined"
             type={showPassword ? "text" : "password"}
             InputProps={{
