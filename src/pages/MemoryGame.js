@@ -1,6 +1,5 @@
 // MemoryGame.js
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
 import './MemoryGame.css';
 
 const MemoryGame = () => {
@@ -47,7 +46,6 @@ const MemoryGame = () => {
           : card
       );
 
-      // If there are two flipped cards, check for a match
       const flippedCards = newCards.filter((card) => card.isFlipped);
       if (flippedCards.length ===   2) {
         setTimeout(() => {
@@ -87,6 +85,15 @@ const MemoryGame = () => {
       alert('Congratulations! You matched all cards!');
     }
   }, [cards]);
+
+  const Card = ({ card, onCardClick }) => (
+    <div
+      className={`card ${card.isFlipped ? 'flipped' : ''}`}
+      onClick={() => onCardClick(card.id)}
+    >
+      {card.isFlipped || card.isMatched ? card.value : ''}
+    </div>
+  );
 
   return (
     <div className="memory-game">

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import MemoryGame from './pages/MemoryGame'; 
 import { ColorPicker, DrawingCanvas } from './pages/DrawingComponents';
-import GameComponent from './pages/GameComponent'; 
+import GameComponent from './pages/GameComponent';   
 import LandingPage from './pages/LandingPage';
 import SignUp from './pages/SignUp';
 import LoginPage from './pages/LoginPage';
@@ -55,10 +56,14 @@ function CombinedApp() {
         title = 'Game';
         metaDescription = 'Play the game.';
         break;
-        case '/draw':
-          title = 'Game2';
-          metaDescription = 'Play the game.';
-          break;
+      case '/draw':
+        title = 'Game2';
+        metaDescription = 'Play the game.';
+        break;
+      case '/memoryGame': 
+        title = 'Memory Game';
+        metaDescription = 'Play the memory game.';
+        break;
     }
 
     if (title) {
@@ -127,6 +132,7 @@ function CombinedApp() {
           <DrawingCanvas color={color} onUpdateDrawing={setDrawingData} toolMode={toolMode} penSize={penSize} eraserSize={eraserSize} />
         </div>
       } />
+      <Route path="/memoryGame" element={<MemoryGame />} /> 
     </Routes>
   );
 }
