@@ -1,15 +1,37 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
-const DrawingCanvas = ({ color, onUpdateDrawing, toolMode, penSize, eraserSize }) => {
-  const canvasRef = useRef(null);
+// ColorPicker component
+export const ColorPicker = ({ selectedColor, onColorChange }) => {
+  const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF']; // Red, Green, Blue, Yellow, Cyan
 
-  useEffect(() => {
+  return (
+    <div className="color-picker">
+      {colors.map((color, index) => (
+        <button
+          key={index}
+          style={{ backgroundColor: color }}
+          onClick={() => onColorChange(color)}
+        >
+          {selectedColor === color ? '✔️' : ''}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+// DrawingCanvas component
+export const DrawingCanvas = ({ color, onUpdateDrawing, toolMode, penSize, eraserSize }) => {
+  const canvasRef = React.useRef(null);
+
+  React.useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
 
     // Set the canvas background to white
     context.fillStyle = '#ffffff';
-    context.fillRect(0,  0, canvas.width, canvas.height);
+    context.fillRect(0,   0, canvas.width, canvas.height);
 
     // Set initial canvas properties
     context.lineWidth = toolMode === 'eraser' ? eraserSize : penSize;
@@ -47,5 +69,3 @@ const DrawingCanvas = ({ color, onUpdateDrawing, toolMode, penSize, eraserSize }
 
   return <canvas ref={canvasRef} width="800" height="600" />;
 };
-
-export default DrawingCanvas;

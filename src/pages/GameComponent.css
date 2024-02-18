@@ -1,0 +1,32 @@
+.App {
+    text-align: center;
+  }
+  
+  .game-board {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:  10px;
+    margin-top:  20px;
+  }
+  
+  .number-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #f0f0f0;
+    padding:   20px; 
+    border:   3px solid #333; 
+    border-radius:   10px; 
+    width:   100px; 
+    height:   100px; 
+    font-size:   24px; 
+    box-shadow:   4px   4px   10px rgba(0,   0,   0,   0.3); 
+  }
+  
+  
+  
+  .timer {
+    margin-top:  20px;
+  }
+  
