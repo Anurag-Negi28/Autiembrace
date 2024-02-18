@@ -1,30 +1,10 @@
 import { useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import PlayFrame from "../components/PlayFrame";
-import Todo from '../components/Todo';
-import React, { useState, useEffect } from "react";
 
 const AutiEmbrace = () => {
   const navigate = useNavigate();
-  const [quote, setQuote] = useState("");
 
-  useEffect(() => {
-    fetchRandomQuote();
-  }, []);
-
-  const fetchRandomQuote = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/api/quotes/random');
-      if (!response.ok) {
-        throw new Error('Failed to fetch quote');
-      }
-      const data = await response.json();
-      setQuote(data.quote_text);
-    } catch (error) {
-      console.error('Error fetching quote:', error);
-    }
-  };
   const onSignOutClick = useCallback(() => {
     navigate("/");
   }, [navigate]);
@@ -32,24 +12,35 @@ const AutiEmbrace = () => {
   return (
     <div className="w-full relative bg-cadetblue h-[3520px] overflow-hidden text-left text-41xl text-black font-montserrat">
       <Navbar />
-      <section className="self-stretch flex flex-row items-start justify-start pt-0 pb-[66px] pr-0.5 pl-0 box-border max-w-full mq750:pb-7 mq750:box-border mq1050:pb-[43px] mq1050:box-border">
-        <PlayFrame />
-      </section>
-
-      <Todo />
-      
-      <section className="w-[1380px] flex flex-row items-start justify-start pt-0 px-5 pb-[17px] box-border gap-[18px] max-w-full text-left text-41xl text-dimgray font-montserrat mq1125:flex-wrap">
-        <div className="flex-[0.7197] rounded-31xl bg-powderblue-100 flex flex-col items-center justify-start pt-[87px] pb-[97px] pr-[113px] pl-[72px] box-border gap-[33px] min-w-[429px] max-w-full mq1125:flex-1 mq750:gap-[33px] mq750:pl-9 mq750:pr-14 mq750:box-border mq750:min-w-full mq450:pt-[37px] mq450:pr-5 mq450:pb-[41px] mq450:box-border mq1050:pt-[57px] mq1050:pb-[63px] mq1050:box-border">
-          <div className="w-[660px] h-[908px] relative rounded-31xl bg-powderblue-100 hidden max-w-full" />
-          <h1 className="m-0 self-stretch relative text-inherit leading-[60px] font-bold font-inherit [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] z-[1] mq450:text-17xl mq450:leading-[36px] mq1050:text-29xl mq1050:leading-[48px]">
-            Rewards
-          </h1>
-          <h1 className="m-0 self-stretch h-[631px] relative text-31xl leading-[50px] font-normal font-inherit flex items-center shrink-0 z-[1] mq450:text-11xl mq450:leading-[30px] mq1050:text-21xl mq1050:leading-[40px]">
-            <span>
-              <p className="[margin-block-start:0] [margin-block-end:15px]">
-                Congratulations you have completed your day 1 tasks.
-              </p>
-            </span>
+      <main className="absolute w-[calc(100%_+_2px)] top-[128px] right-[-2px] left-[0px] h-[908px] text-left text-41xl text-black font-outfit">
+        <div className="absolute w-[calc(100%_-_732px)] top-[0px] right-[732px] left-[0px] rounded-31xl bg-powderblue-100 [filter:blur(250px)] h-[431px]" />
+        <h1 className="m-0 absolute w-[32.94%] top-[0px] left-[9.36%] text-inherit leading-[60px] font-bold font-inherit flex items-center h-[431px]">
+          <span className="w-full">
+            <p className="[margin-block-start:0] [margin-block-end:15px]">
+              Hi [user name],
+            </p>
+            <p className="m-0">Let’s spread some happiness !</p>
+          </span>
+        </h1>
+        <div className="absolute w-[calc(100%_-_732px)] top-[0px] right-[0px] left-[732px] rounded-31xl bg-powderblue-100 [filter:blur(250px)] h-[908px]" />
+        <img
+          className="absolute w-[49.24%] top-[99px] right-[0.14%] left-[50.62%] max-w-full overflow-hidden h-[664px] object-cover"
+          alt=""
+          src="/desktopicon@2x.png"
+        />
+        <div className="absolute w-[calc(100%_-_732px)] top-[477px] right-[732px] left-[0px] rounded-31xl bg-powderblue-100 [filter:blur(250px)] h-[431px]" />
+        <div className="absolute w-[45.77%] top-[431px] right-[50.76%] left-[3.47%] h-[477px] text-center text-21xl">
+          <img
+            className="absolute w-full top-[46px] right-[0%] left-[0%] max-w-full overflow-hidden h-[431px] object-cover mix-blend-hard-light"
+            alt=""
+            src="/quotebox@2x.png"
+          />
+          <b className="absolute w-[71.97%] top-[0px] left-[17.12%] leading-[40px] flex items-center justify-center h-[415px]">
+            An apple a day keeps doctor away
+          </b>
+          <i className="absolute w-[26.36%] top-[317px] left-[53.03%] text-base leading-[31px] inline-block font-montserrat h-[30px]">
+            -Benjamin Franklin
+          </i>
         </div>
       </main>
       <div className="absolute w-full top-[1127px] right-[0px] left-[0px] h-[960px]">
@@ -195,7 +186,7 @@ const AutiEmbrace = () => {
         </div>
         <textarea className="[border:none] bg-white [outline:none] absolute w-[calc(100%_-_973px)] right-[123px] bottom-[133px] left-[850px] rounded-31xl h-48" />
         <div className="absolute w-full right-[0px] bottom-[0px] left-[0px] bg-gainsboro h-[50px]" />
-        <div className="absolute top-[calc(50%_+_165.5px)] left-[calc(50%_-_111.5px)] whitespace-pre-wrap text-center flex items-center w-56 h-[50px]">
+        <div className="absolute top-[calc(50%+_165.5px)] left-[calc(50%-_111.5px)] whitespace-pre-wrap text-center flex items-center w-56 h-[50px]">
           <span className="w-full">
             <span>{`©  `}</span>
             <span className="text-lg">AutiEmbrace</span>
