@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tile renders correctly given correct prop 1`] = `
+<div
+  className="makeStyles-root-1 makeStyles-root-5"
+  onClick={[Function]}
+>
+  <span
+    className="makeStyles-tileNumber-2"
+  >
+    0
+  </span>
+</div>
+`;
+
+exports[`Tile renders correctly given custom number 1`] = `
+<div
+  className="makeStyles-root-1 makeStyles-root-3"
+  onClick={[Function]}
+>
+  <span
+    className="makeStyles-tileNumber-2"
+  >
+    13
+  </span>
+</div>
+`;
+
+exports[`Tile renders correctly given default number 1`] = `
+<div
+  className="makeStyles-root-1 makeStyles-root-4"
+  onClick={[Function]}
+>
+  <span
+    className="makeStyles-tileNumber-2"
+  >
+    0
+  </span>
+</div>
+`;
+
+exports[`Tile renders correctly given invisible prop 1`] = `
+<div
+  className="makeStyles-root-1 makeStyles-root-6"
+  onClick={[Function]}
+>
+  <span
+    className="makeStyles-tileNumber-2"
+  >
+    0
+  </span>
+</div>
+`;
