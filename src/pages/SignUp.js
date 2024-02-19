@@ -60,7 +60,6 @@ const SignUp = () => {
         />
         <Link
           className="cursor-pointer [text-decoration:none] absolute top-[calc(50%_+_214px)] left-[calc(50%_-_87px)] text-xl text-[inherit]"
-          to="/-login-page"
         >
           Create Account
         </Link>
