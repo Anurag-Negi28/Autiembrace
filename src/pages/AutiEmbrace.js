@@ -56,9 +56,6 @@ const AutiEmbrace = () => {
           <b className="absolute w-[71.97%] top-[0px] left-[17.12%] leading-[40px] flex items-center justify-center h-[415px]">
             {quote}
           </b>
-          <i className="absolute w-[26.36%] top-[317px] left-[53.03%] text-base leading-[31px] inline-block font-montserrat h-[30px]">
-            -Benjamin Franklin
-          </i>
         </div>
       </main>
       <div className="absolute w-full top-[1127px] right-[0px] left-[0px] h-[960px]">
