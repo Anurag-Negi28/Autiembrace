@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Video Uploading</title>
+</head>
+
+<body>
+	<h1>To Upload Video on MongoDB</h1>
+	<hr />
+	<div>
+	<form action="/" method="POST" enctype="multipart/form-data">
+		<div>
+		<label for="name">Video Title</label>
+		<input
+			type="text"
+			id="name"
+			placeholder="Name"
+			value=""
+			name="name"
+			required
+		/>
+		</div>
+		<div>
+		<label for="desc">Video Description</label>
+		<textarea
+			id="desc"
+			name="desc"
+			value=""
+			rows="2"
+			placeholder="Description"
+			required
+		>
+		</textarea>
+		</div>
+		<div>
+		<label for="video">Upload Video</label>
+		<input type="file" id="video" name="video" value="" required />
+		</div>
+		<div>
+		<button type="submit">Submit</button>
+		</div>
+	</form>
+	</div>
+
+	<hr />
+
+	<h1>Uploaded Videos</h1>
+	<div>
+	<% items.forEach(function(video) { %>
+	<div>
+		<div>
+		<video controls>
+			<source src="data:video/<%=video.video.contentType%>;base64,
+					<%=video.video.data.toString('base64')%>" type="<%=video.video.contentType%>">
+			Your browser does not support the video tag.
+		</video>
+		<div>
+			<h5><%= video.name %></h5>
+
+			<p><%= video.desc %></p>
+		</div>
+		</div>
+	</div>
+	<% }) %>
+	</div>
+</body>
+</html>
