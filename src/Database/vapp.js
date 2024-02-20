@@ -1,3 +1,4 @@
+//vapp.js
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -55,7 +56,20 @@ app.post('/', upload.single('video'), (req, res, next) => {
       res.status(500).send('An error occurred while uploading the video.');
     });
 });
-
+app.get('/api/videos/:name', (req, res) => {
+  const name = req.params.name;
+  videoSchema.findOne({ name: name })
+    .then(video => {
+      if (!video) {
+        return res.status(404).send('Video not found');
+      }
+      res.json(video);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('An error occurred while fetching the video.');
+    });
+});
 var port = process.env.PORT || '3007';
 app.listen(port, err => {
   if (err) throw err;

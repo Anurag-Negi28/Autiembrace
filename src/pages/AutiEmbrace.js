@@ -1,9 +1,28 @@
 import { useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import React, { useState, useEffect } from "react";
 
 const AutiEmbrace = () => {
   const navigate = useNavigate();
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    fetchRandomQuote();
+  }, []);
+
+  const fetchRandomQuote = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/quotes/random');
+      if (!response.ok) {
+        throw new Error('Failed to fetch quote');
+      }
+      const data = await response.json();
+      setQuote(data.quote_text);
+    } catch (error) {
+      console.error('Error fetching quote:', error);
+    }
+  };
 
   const onSignOutClick = useCallback(() => {
     navigate("/");
@@ -36,7 +55,7 @@ const AutiEmbrace = () => {
             src="/quotebox@2x.png"
           />
           <b className="absolute w-[71.97%] top-[0px] left-[17.12%] leading-[40px] flex items-center justify-center h-[415px]">
-            An apple a day keeps doctor away
+            {quote}
           </b>
           <i className="absolute w-[26.36%] top-[317px] left-[53.03%] text-base leading-[31px] inline-block font-montserrat h-[30px]">
             -Benjamin Franklin
