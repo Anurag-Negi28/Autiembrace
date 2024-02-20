@@ -1,6 +1,7 @@
 const { MongoClient, ObjectId } = require('mongodb');
-const uri = 'mongodb://localhost:27017'; 
-const client = new MongoClient(uri);
+
+const uri = process.env.MONGODB_URI; 
+const client = new MongoClient('mongodb+srv://Cyphers:Autiembrace@cluster0.vdsgquy.mongodb.net/');
 
 async function connect() {
   try {
