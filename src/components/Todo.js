@@ -28,9 +28,18 @@ const Todo = () => {
     const todoCount = todos.length;
     switch (todoCount) {
       case 0:
-        return "Seems like a good day, let's do some work!";
+        return "Let's get some work done!";
+      case 1:
+      case 2:
+        return "Go you rockstar!";
+      case 3:
+      case 4:
+        return "Keep pushing, you're doing great!";
+      case 5:
+      case 6:
+        return "Almost there, stay focused and finish strong!";
       case 7:
-        return "Enough work for today!";
+        return "Take rest, enough work for the day!";
       default:
         return "Keep up the good work!";
     }
