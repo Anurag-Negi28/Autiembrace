@@ -10,6 +10,8 @@ import TicTacToe from './pages/TicTacToe';
 import LoginPage from './pages/LoginPage';
 import AutiEmbrace from './pages/AutiEmbrace';
 import PlayGames from './pages/PlayGames';
+import Learn from "./pages/Learn";
+import SensoryRoom from "./pages/SensoryRoom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
@@ -75,6 +77,14 @@ function App() {
         title = 'Memory Game';
         metaDescription = 'Play the memory game.';
         break;
+      case "/learn":
+          title = "Learn";
+          metaDescription = "";
+          break;
+      case "/sensoryroom":
+          title = "Sensory Room";
+          metaDescription = "";
+          break;
     }
 
     if (title) {
@@ -146,6 +156,8 @@ function App() {
       <Route path="/memoryGame" element={<MemoryGame />} /> 
       <Route path="/tt" element={<TicTacToe />} />
       <Route path="/rps" element={<RockPaperScissors />} />
+      <Route path="/learn" element={<Learn />} />
+      <Route path="/sensoryroom" element={<SensoryRoom />} />
     </Routes>
   );
 }

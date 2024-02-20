@@ -36,7 +36,7 @@ const ColoringGameForm = ({ propRight, propLeft }) => {
         <img
           className="absolute h-[35.53%] w-[31.67%] top-[32%] right-[30.33%] bottom-[32.47%] left-[38%] max-w-full overflow-hidden max-h-full"
           alt=""
-          src="/vector.svg"
+          src="/vector1.svg"
         />
       </button>
     </div>
