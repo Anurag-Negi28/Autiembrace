@@ -52,7 +52,7 @@ const Todo = () => {
             >
               <span>{todo.title}</span>
               <button
-                className="delete-button"
+                className="delete-button bg-mistyrose text-dimgray"
                 onClick={() => deleteTodo(todo)}
               >
                 Delete
@@ -73,7 +73,9 @@ const Todo = () => {
                 value={newDescription}
                 onChange={(e) => setNewDescription(e.target.value)}
               />
-              <button onClick={addTodo}>Add Todo</button>
+              <button className="bg-mistyrose text-dimgray" onClick={addTodo}>
+                Add Todo
+              </button>
             </div>
           )}
         </div>

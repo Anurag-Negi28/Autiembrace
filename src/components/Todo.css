@@ -51,7 +51,7 @@
 
 /* Custom styles for the Todo component */
 .tododiv {
-  background-color: #f4f4f4;
+  /* background-color: #E6E6FA; */
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
