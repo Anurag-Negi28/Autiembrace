@@ -14,11 +14,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
-  const [color, setColor] = useState('#000000'); // Default color black
+  const [color, setColor] = useState('#000000'); 
   const [drawingData, setDrawingData] = useState([]);
-  const [toolMode, setToolMode] = useState('pen'); // Default tool is pen
-  const [penSize, setPenSize] = useState(5); // Default pen size
-  const [eraserSize, setEraserSize] = useState(10); // Default eraser size
+  const [toolMode, setToolMode] = useState('pen'); 
+  const [penSize, setPenSize] = useState(5); 
+  const [eraserSize, setEraserSize] = useState(10);
 
   const location = useLocation();
   const pathname = location.pathname;
