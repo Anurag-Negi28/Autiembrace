@@ -1,9 +1,19 @@
 import { useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Slide from "../components/Slide";
-import ColoringGameContainer from "../components/ColoringGameContainer";
-import ColoringGameForm1 from "../components/ColoringGameForm1";
-import ColoringGameForm from "../components/ColoringGameForm";
+
+import Gamee3 from "../components/gamee3";
+import Gamee33 from "../components/gamee33";
+import Gamee333 from "../components/gamee333";
+
+import Gamee2 from "../components/gamee2";
+import Gamee22 from "../components/gamee22";
+
+import Gamee1 from "../components/gamee1";
+import Gamee11 from "../components/gamee11";
+import Gamee111 from "../components/gamee111";
+import Gamee1111 from "../components/game1111";
+
 
 const PlayGames = () => {
   const navigate = useNavigate();
@@ -61,27 +71,31 @@ const PlayGames = () => {
         slide1Right="0px"
         slide1Left="0px"
       />
-      <ColoringGameContainer />
-      <ColoringGameContainer
+
+      <Gamee1/>
+      <Gamee11
         propRight="34.72%"
         propLeft="35.21%"
         propTop="722px"
       />
-      <ColoringGameContainer
+      <Gamee111
         propRight="66.67%"
         propLeft="3.26%"
         propTop="722px"
       />
-      <ColoringGameContainer
+      <Gamee1111
         propRight="3.54%"
         propLeft="66.39%"
         propTop="1121px"
       />
-      <ColoringGameForm1 />
-      <ColoringGameForm1 propRight="66.67%" propLeft="3.26%" />
-      <ColoringGameForm />
-      <ColoringGameForm propRight="33.54%" propLeft="36.39%" />
-      <ColoringGameForm propRight="65.49%" propLeft="4.44%" />
+
+      <Gamee2 />
+      <Gamee22 propRight="66.67%" propLeft="3.26%" />
+
+      <Gamee3 />
+      <Gamee33 propRight="33.54%" propLeft="36.39%" />
+      <Gamee333 propRight="65.49%" propLeft="4.44%" />
+
     </div>
   );
 };
