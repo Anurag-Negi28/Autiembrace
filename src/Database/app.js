@@ -1,3 +1,4 @@
+//app.js
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -53,9 +54,40 @@ app.post('/', upload.single('image'), (req, res, next) => {
 	  });
   });
   
-
+  app.get('/api/images/:name', (req, res) => {
+	const name = req.params.name;
+	imgSchema.findOne({ name: name })
+	  .then(image => {
+		if (!image) {
+		  return res.status(404).send('Image not found');
+		}
+		res.json(image);
+	  })
+	  .catch(err => {
+		console.error(err);
+		res.status(500).send('An error occurred while fetching the image.');
+	  });
+  });
 var port = process.env.PORT || '3005';
 app.listen(port, err => {
   if (err) throw err;
   console.log('Server listening on port', port);
 });
+
+/*import React from 'react';
+import VideoFetcher from './VideoFetcher';
+import ImageFetcher from './ImageFetcher';
+
+const App = () => {
+  return (
+    <div>
+      <h1>Video</h1>
+      <VideoFetcher videoName="example-video-name" />
+      <h1>Image</h1>
+      <ImageFetcher imageName="example-image-name" />
+    </div>
+  );
+};
+
+export default App;
+*/
