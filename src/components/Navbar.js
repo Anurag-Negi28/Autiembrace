@@ -4,12 +4,16 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const onPlayButtonClick = useCallback(() => {
-    window.open("/playgames");
-  }, []);
-
   const onPlayRectangleClick = useCallback(() => {
     navigate("/playgames");
+  }, [navigate]);
+
+  const forRelax = useCallback(() => {
+    navigate("/relax");
+  }, [navigate]);
+
+  const forLearn = useCallback(() => {
+    navigate("/learn");
   }, [navigate]);
 
   return (
@@ -30,11 +34,10 @@ const Navbar = () => {
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[190px] w-[102px] h-[35px]"
         autoFocus={true}
-        onClick={onPlayButtonClick}
+        onClick={onPlayRectangleClick}
       >
         <div
           className="absolute top-[0px] right-[0px] rounded-31xl bg-powderblue-100 w-[102px] h-[35px] cursor-pointer"
-          onClick={onPlayRectangleClick}
         />
         <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[102px] h-[35px]">
           Play
@@ -43,6 +46,7 @@ const Navbar = () => {
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[48px] w-[101px] h-[33px]"
         autoFocus={true}
+        onClick={forRelax}
       >
         <div className="absolute top-[0px] right-[0px] rounded-31xl bg-powderblue-100 w-[101px] h-[33px]" />
         <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[101px] h-[33px]">
@@ -52,6 +56,7 @@ const Navbar = () => {
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[495px] w-[101px] h-[35px]"
         autoFocus={true}
+        onClick={forLearn}
       >
         <button
           className="cursor-pointer [border:none] p-0 bg-powderblue-100 absolute top-[0px] right-[0px] rounded-31xl w-[101px] h-[35px]"
