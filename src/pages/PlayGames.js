@@ -72,7 +72,7 @@ const PlayGames = () => {
         slide1Left="0px"
       />
 
-      <Gamee1/>
+      <Gamee1 apiUrl="http://localhost:3005/api/images/Memory-Game" />
       <Gamee11
         propRight="34.72%"
         propLeft="35.21%"

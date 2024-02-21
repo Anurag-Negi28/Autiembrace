@@ -1,10 +1,11 @@
+// ImageDisplay.js
 import React, { useState, useEffect } from 'react';
 
-const ImageDisplay = () => {
+const ImageDisplay = ({ apiUrl }) => {
   const [imageSrc, setImageSrc] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3005/api/images/Memory-Game')
+    fetch(apiUrl)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -13,10 +14,10 @@ const ImageDisplay = () => {
       })
       .then(blob => {
         const objectURL = URL.createObjectURL(blob);
-        setImageSrc(objectURL); 
+        setImageSrc(objectURL);  
       })
       .catch(error => console.error('Error fetching image data:', error));
-  }, []);
+  }, [apiUrl]); 
 
   if (!imageSrc) {
     return <div>Loading image...</div>;
