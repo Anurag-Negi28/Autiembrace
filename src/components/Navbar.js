@@ -8,8 +8,8 @@ const Navbar = () => {
     navigate("/playgames");
   }, [navigate]);
 
-  const forSensoryRoom = useCallback(() => {
-    navigate("/sensoryroom");
+  const forRelax = useCallback(() => {
+    navigate("/relax");
   }, [navigate]);
 
   const forLearn = useCallback(() => {
@@ -46,7 +46,7 @@ const Navbar = () => {
       <button
         className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[30px] right-[48px] w-[101px] h-[33px]"
         autoFocus={true}
-        onClick={forSensoryRoom}
+        onClick={forRelax}
       >
         <div className="absolute top-[0px] right-[0px] rounded-31xl bg-powderblue-100 w-[101px] h-[33px]" />
         <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[101px] h-[33px]">
