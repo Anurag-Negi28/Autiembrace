@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import MemoryGame from './pages/MemoryGame'; 
+import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
+import MemoryGame from './pages/MemoryGame';
 import { ColorPicker, DrawingCanvas } from './pages/DrawingComponents';
-import GameComponent from './pages/GameComponent';   
+import GameComponent from './pages/GameComponent';
 import LandingPage from './pages/LandingPage';
 import SignUp from './pages/SignUp';
-import RockPaperScissors from './pages/RockPaperScissors'; 
+import RockPaperScissors from './pages/RockPaperScissors';
 import TicTacToe from './pages/TicTacToe';
 import LoginPage from './pages/LoginPage';
 import AutiEmbrace from './pages/AutiEmbrace';
@@ -14,22 +14,24 @@ import Learn from "./pages/Learn";
 import Relax from "./pages/Relax";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
+import ImageDisplay from './pages/ImageDisplay';
 
 function App() {
+  const action = useNavigationType();
   const [color, setColor] = useState('#000000'); 
   const [drawingData, setDrawingData] = useState([]);
   const [toolMode, setToolMode] = useState('pen'); 
   const [penSize, setPenSize] = useState(5); 
   const [eraserSize, setEraserSize] = useState(10);
+
   const location = useLocation();
   const pathname = location.pathname;
-
+  
   useEffect(() => {
-    if (location.action !== 'POP') {
-      window.scrollTo(0,   0);
+    if (action !== "POP") {
+      window.scrollTo(0, 0);
     }
   }, [location]);
-
 
   useEffect(() => {
     let title = '';
@@ -85,6 +87,10 @@ function App() {
           title = "Relax";
           metaDescription = "";
           break;
+      case "/img":
+        title = "Img";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -158,6 +164,7 @@ function App() {
       <Route path="/rps" element={<RockPaperScissors />} />
       <Route path="/learn" element={<Learn />} />
       <Route path="/relax" element={<Relax />} />
+      <Route path="/img" element={<ImageDisplay />} />
     </Routes>
   );
 }

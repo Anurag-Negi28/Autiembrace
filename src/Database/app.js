@@ -6,7 +6,10 @@ var mongoose = require('mongoose');
 var imgSchema = require('./model.js');
 var fs = require('fs');
 var path = require('path');
+var cors = require('cors'); 
+
 app.set("view engine", "ejs");
+app.use(cors());
 
 mongoose.connect('mongodb+srv://Cyphers:Autiembrace@cluster0.vdsgquy.mongodb.net/Autiembrace?retryWrites=true&w=majority')
   .then(() => console.log("DB Connected"))
@@ -61,13 +64,21 @@ app.post('/', upload.single('image'), (req, res, next) => {
 		if (!image) {
 		  return res.status(404).send('Image not found');
 		}
-		res.json(image);
+		if (image.img && image.img.data) {
+		  res.setHeader('Content-Type', image.img.contentType);
+		  res.setHeader('Content-Length', image.img.data.length);
+		  res.send(image.img.data);
+		} else {
+		  console.error('Image data is missing in the document');
+		  res.status(500).send('An error occurred while fetching the image.');
+		}
 	  })
 	  .catch(err => {
 		console.error(err);
 		res.status(500).send('An error occurred while fetching the image.');
 	  });
   });
+  
 var port = process.env.PORT || '3005';
 app.listen(port, err => {
   if (err) throw err;
