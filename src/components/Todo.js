@@ -52,12 +52,13 @@ const Todo = () => {
         <div className="left-panel">
           <h2 className="todo-header">To do's</h2>
           <p className="todo-message para">{getTodoMessage()}</p>{" "}
-          {/* Added "para" class here */}
+          {/**Discover the hidden writer in yourself **/}
           {todos.map((todo, index) => (
             <div
               key={index}
               className={`todo ${selectedTodo === todo ? "selected" : ""}`}
               onClick={() => handleTodoClick(todo)}
+              onMouseOver={() => handleTodoClick(todo)} /* Added mouse over event */
             >
               <span>{todo.title}</span>
               <button
@@ -94,8 +95,8 @@ const Todo = () => {
             {selectedTodo
               ? selectedTodo.description
               : todos.length === 0
-              ? "Select a todo"
-              : ""}
+              ? "Step into the world of productivity with your first to-do! 🚀 Did you know that jotting down tasks can declutter your mind, boost focus, and foster a sense of achievement? So why wait? Start your journey towards success by writing your first to-do now! Remember, every big accomplishment starts with a single step. Let’s take that step together today! 🌟"
+              : "You're doing great! Keep going!"}  {/** Added encouraging message*/ }
           </p>{" "}
           {/* Updated condition here */}
         </div>
