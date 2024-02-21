@@ -11,7 +11,7 @@ import LoginPage from './pages/LoginPage';
 import AutiEmbrace from './pages/AutiEmbrace';
 import PlayGames from './pages/PlayGames';
 import Learn from "./pages/Learn";
-import SensoryRoom from "./pages/SensoryRoom";
+import Relax from "./pages/Relax";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,7 +21,6 @@ function App() {
   const [toolMode, setToolMode] = useState('pen'); 
   const [penSize, setPenSize] = useState(5); 
   const [eraserSize, setEraserSize] = useState(10);
-
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -30,6 +29,7 @@ function App() {
       window.scrollTo(0,   0);
     }
   }, [location]);
+
 
   useEffect(() => {
     let title = '';
@@ -81,8 +81,8 @@ function App() {
           title = "Learn";
           metaDescription = "";
           break;
-      case "/sensoryroom":
-          title = "Sensory Room";
+      case "/relax":
+          title = "Relax";
           metaDescription = "";
           break;
     }
@@ -157,7 +157,7 @@ function App() {
       <Route path="/tt" element={<TicTacToe />} />
       <Route path="/rps" element={<RockPaperScissors />} />
       <Route path="/learn" element={<Learn />} />
-      <Route path="/sensoryroom" element={<SensoryRoom />} />
+      <Route path="/relax" element={<Relax />} />
     </Routes>
   );
 }
