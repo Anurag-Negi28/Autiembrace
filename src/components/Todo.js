@@ -50,7 +50,7 @@ const Todo = () => {
       <h2 className="todo-heading">Let’s get organized!</h2>
       <div className="todo-list">
         <div className="left-panel">
-          <h2 className="todo-header">Todos</h2>
+          <h2 className="todo-header">To do's</h2>
           <p className="todo-message para">{getTodoMessage()}</p>{" "}
           {/* Added "para" class here */}
           {todos.map((todo, index) => (

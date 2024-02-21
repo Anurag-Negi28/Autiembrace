@@ -19,7 +19,7 @@ const Gamee1 = ({ propRight, propLeft, propTop, apiUrl }) => {
 
   return (
     <div
-      className="absolute w-[30.07%] top-[722px] right-[3.54%] left-[66.39%] h-[342px] text-center text-21xl text-dimgray font-montserrat"
+      className="flex justify-center items-center absolute w-[30.07%] top-[722px] right-[3.54%] left-[66.39%] h-[342px] text-center text-21xl text-dimgray overflow-hidden font-montserrat border rounded-full"
       style={game9DrawStyle}
     >
       <ImageDisplay 
@@ -27,7 +27,9 @@ const Gamee1 = ({ propRight, propLeft, propTop, apiUrl }) => {
         apiUrl={apiUrl}
       />
       <ImageDisplay 
-        className="absolute w-full top-[0px] right-[0px] left-[0px] rounded-54xl max-w-full overflow-hidden h-[342px]"
+        className="absolute w-[99.31%] top-[0px] right-[0%] left-[0.69%] rounded-54xl max-w-full overflow-hidden h-[342px]"
+        alt=""
+        
         apiUrl={apiUrl}
       />
       <div className="absolute w-[calc(100%_-_3px)] top-[265px] right-[2px] left-[1px] rounded-31xl bg-powderblue-100 [filter:blur(30px)] h-[77px]" />
