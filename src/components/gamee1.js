@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import ImageFetcher from '../Database/ImageFetcher';
+import ImageDisplay from '../pages/ImageDisplay'; 
 
-const Gamee1 = ({ propRight, propLeft, propTop }) => {
+const Gamee1 = ({ propRight, propLeft, propTop, apiUrl }) => {
   const navigate = useNavigate();
 
   const handleImageClick = () => {
@@ -22,15 +22,14 @@ const Gamee1 = ({ propRight, propLeft, propTop }) => {
       className="absolute w-[30.07%] top-[722px] right-[3.54%] left-[66.39%] h-[342px] text-center text-21xl text-dimgray font-montserrat"
       style={game9DrawStyle}
     >
-      <ImageFetcher
+      <ImageDisplay 
         className="absolute w-full top-[0px] right-[0px] left-[0px] rounded-54xl max-w-full overflow-hidden h-[342px]"
-       imageName="Memory-Game"
+        apiUrl={apiUrl}
       />
-      <ImageFetcher
+      <ImageDisplay 
         className="absolute w-full top-[0px] right-[0px] left-[0px] rounded-54xl max-w-full overflow-hidden h-[342px]"
-       imageName="Memory-Game"
+        apiUrl={apiUrl}
       />
-      
       <div className="absolute w-[calc(100%_-_3px)] top-[265px] right-[2px] left-[1px] rounded-31xl bg-powderblue-100 [filter:blur(30px)] h-[77px]" />
       <div className="absolute w-full top-[265px] left-[0%] leading-[140%] font-medium flex items-center justify-center h-[77px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
         Scribble Art
