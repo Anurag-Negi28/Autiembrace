@@ -34,6 +34,7 @@ module.exports = {
         mediumseagreen: "#22b07d",
         darkcyan: "#0daabc",
         mediumpurple: "#9369d8",
+        lightblue: "#b1e5f6", // new color from incoming file
       },
       spacing: {},
       fontFamily: {
@@ -51,6 +52,8 @@ module.exports = {
         xl: "20px",
         "81xl": "100px",
         "12xs": "1px",
+        "150xl": "169px", // new borderRadius from incoming file
+        "35xl": "54px", // new borderRadius from incoming file
       },
     },
     fontSize: {
@@ -69,6 +72,7 @@ module.exports = {
       "3xs": "10px",
       "11xl": "30px",
       inherit: "inherit",
+      "16xl-1": "35.1px", // new fontSize from incoming file
     },
     screens: {
       mq750: {
