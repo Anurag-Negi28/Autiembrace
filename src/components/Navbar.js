@@ -9,11 +9,7 @@ const Navbar = () => {
   }, [navigate]);
 
   const forRelax = useCallback(() => {
-<<<<<<< HEAD
-    navigate("/Relax");
-=======
     navigate("/relax");
->>>>>>> 30718f1b6a075bd012c4552afc9c014497709cc3
   }, [navigate]);
 
   const forLearn = useCallback(() => {
