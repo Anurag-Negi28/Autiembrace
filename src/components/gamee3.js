@@ -25,7 +25,7 @@ const Gamee3 = ({ propRight, propLeft }) => {
       />
       <div className="absolute w-[calc(100%_-_3px)] top-[265px] right-[2px] left-[1px] rounded-31xl bg-powderblue-100 [filter:blur(30px)] h-[77px]" />
       <div className="absolute w-full top-[265px] left-[0%] leading-[140%] font-medium flex items-center justify-center h-[77px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
-        Coloring Game
+      Coming Soon!
       </div>
       <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute h-[43.86%] w-[34.64%] top-[28.07%] right-[36.26%] bottom-[28.07%] left-[29.1%]">
         <img

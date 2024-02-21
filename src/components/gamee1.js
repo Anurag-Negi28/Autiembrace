@@ -19,7 +19,7 @@ const Gamee1 = ({ propRight, propLeft, propTop, apiUrl }) => {
 
   return (
     <div
-      className="flex justify-center items-center absolute w-[30.07%] top-[722px] right-[3.54%] left-[66.39%] h-[342px] text-center text-21xl text-dimgray overflow-hidden font-montserrat border rounded-full"
+      className="flex justify-center items-center absolute w-[30.07%] top-[722px] right-[3.54%] left-[66.39%] h-[342px] text-center text-21xl text-dimgray overflow-hidden font-montserrat border rounded-3xl"
       style={game9DrawStyle}
     >
       <ImageDisplay 

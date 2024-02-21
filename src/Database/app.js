@@ -1,99 +1,103 @@
-import { useState } from "react";
-import "./Todo.css";
+//app.js
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var imgSchema = require('./model.js');
+var fs = require('fs');
+var path = require('path');
+var cors = require('cors'); 
+app.set("view engine", "ejs");
+app.use(cors());
 
-const Todo = () => {
-  const [todos, setTodos] = useState([]);
-  const [selectedTodo, setSelectedTodo] = useState(null);
-  const [newTodo, setNewTodo] = useState("");
-  const [newDescription, setNewDescription] = useState("");
+mongoose.connect('mongodb+srv://Cyphers:Autiembrace@cluster0.vdsgquy.mongodb.net/Autiembrace?retryWrites=true&w=majority')
+  .then(() => console.log("DB Connected"))
+  .catch(err => console.error('Connection error', err));
 
-  const handleTodoClick = (todo) => {
-    setSelectedTodo(todo);
-  };
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-  const addTodo = () => {
-    if (todos.length < 7 && newTodo.trim() !== "") {
-      setTodos([...todos, { title: newTodo, description: newDescription }]);
-      setNewTodo("");
-      setNewDescription("");
-    }
-  };
+var multer = require('multer');
 
-  const deleteTodo = (todo) => {
-    setTodos(todos.filter((t) => t !== todo));
-    setSelectedTodo(null);
-  };
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now());
+  }
+});
 
-  const getTodoMessage = () => {
-    const todoCount = todos.length;
-    if (todoCount === 0) {
-      return "No todos yet. Did you know that keeping a to-do list can help improve productivity and focus?";
-    }
-    if (selectedTodo && !selectedTodo.description) {
-      return "This todo doesn't have a description yet. Adding a description can help clarify your tasks and goals.";
-    }
-    if (selectedTodo && selectedTodo.description) {
-      return selectedTodo.description;
-    }
-    return "You're doing great! Keep going!";
-  };
+var upload = multer({ storage: storage });
 
+app.get('/', (req, res) => {
+  imgSchema.find({})
+    .then(data => res.render('imagepage', { items: data }))
+    .catch(err => console.error(err));
+});
+
+app.post('/', upload.single('image'), (req, res, next) => {
+	var obj = {
+	  name: req.body.name,
+	  desc: req.body.desc,
+	  img: {
+		data: fs.readFileSync(path.join(__dirname, 'uploads', req.file.filename)),
+		contentType: req.file.mimetype
+	  }
+	};
+	imgSchema.create(obj)
+	  .then(item => {
+		console.log('Image saved to database:', item);
+		res.redirect('/');
+	  })
+	  .catch(err => {
+		console.error(err);
+		res.status(500).send('An error occurred while uploading the image.');
+	  });
+  });
+  
+  app.get('/api/images/:name', (req, res) => {
+	const name = req.params.name;
+	imgSchema.findOne({ name: name })
+	  .then(image => {
+		if (!image) {
+		  return res.status(404).send('Image not found');
+		}
+		if (image.img && image.img.data) {
+		  res.setHeader('Content-Type', image.img.contentType);
+		  res.setHeader('Content-Length', image.img.data.length);
+		  res.send(image.img.data);
+		} else {
+		  console.error('Image data is missing in the document');
+		  res.status(500).send('An error occurred while fetching the image.');
+		}
+	  })
+	  .catch(err => {
+		console.error(err);
+		res.status(500).send('An error occurred while fetching the image.');
+	  });
+  });
+  
+var port = process.env.PORT || '3005';
+app.listen(port, err => {
+  if (err) throw err;
+  console.log('Server listening on port', port);
+});
+
+/*import React from 'react';
+import VideoFetcher from './VideoFetcher';
+import ImageFetcher from './ImageFetcher';
+
+const App = () => {
   return (
-    <>
-      <h2 className="todo-heading">Let’s get organized!</h2>
-      <div className="todo-list">
-        <div className="left-panel">
-          <h2 className="todo-header">To do's</h2>
-          <p className="todo-message para">{getTodoMessage()}</p>
-          {todos.map((todo, index) => (
-            <div
-              key={index}
-              className={`todo ${selectedTodo === todo ? "selected" : ""}`}
-              onClick={() => handleTodoClick(todo)}
-              onMouseOver={() => handleTodoClick(todo)}
-            >
-              <span>{todo.title}</span>
-              <button
-                className="delete-button bg-mistyrose text-dimgray"
-                onClick={() => deleteTodo(todo)}
-              >
-                Delete
-              </button>
-            </div>
-          ))}
-          {todos.length < 7 && (
-            <div className="add-todo-container">
-              <input
-                type="text"
-                placeholder="Todo"
-                value={newTodo}
-                onChange={(e) => setNewTodo(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Description"
-                value={newDescription}
-                onChange={(e) => setNewDescription(e.target.value)}
-              />
-              <button className="bg-mistyrose text-dimgray" onClick={addTodo}>
-                Add Todo
-              </button>
-            </div>
-          )}
-        </div>
-        <div className="right-panel">
-          <h2 className="todo-header">Todo Description</h2>
-          <p className="para">
-            {selectedTodo
-              ? selectedTodo.description
-              : todos.length === 0
-              ? "Step into the world of productivity with your first to-do! 🚀 Did you know that jotting down tasks can declutter your mind, boost focus, and foster a sense of achievement? So why wait? Start your journey towards success by writing your first to-do now! Remember, every big accomplishment starts with a single step. Let’s take that step together today! 🌟"
-              : "You're doing great! Keep going!"}
-          </p>
-        </div>
-      </div>
-    </>
+    <div>
+      <h1>Video</h1>
+      <VideoFetcher videoName="example-video-name" />
+      <h1>Image</h1>
+      <ImageFetcher imageName="example-image-name" />
+    </div>
   );
 };
 
-export default Todo;
+export default App;
+*/

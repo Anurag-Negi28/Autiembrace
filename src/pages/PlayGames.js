@@ -72,21 +72,24 @@ const PlayGames = () => {
         slide1Left="0px"
       />
 
-      <Gamee1 apiUrl="http://localhost:3005/api/images/Memory-Game" />
+      <Gamee1 apiUrl="http://localhost:3005/api/images/scribble-art" />
       <Gamee11
         propRight="34.72%"
         propLeft="35.21%"
         propTop="722px"
+        apiUrl="http://localhost:3005/api/images/counting-app" 
       />
       <Gamee111
         propRight="66.67%"
         propLeft="3.26%"
         propTop="722px"
+        apiUrl="http://localhost:3005/api/images/Memory-Game" 
       />
       <Gamee1111
         propRight="3.54%"
         propLeft="66.39%"
         propTop="1121px"
+        apiUrl="http://localhost:3005/api/images/Stone-paper-scissors"
       />
 
       <Gamee2 />
