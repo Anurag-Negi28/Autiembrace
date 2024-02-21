@@ -53,7 +53,7 @@ const Relax = () => {
   }, []);
 
   return (
-    <div className="relative bg-lightblue w-full h-[4160px] overflow-hidden text-left text-xl text-sienna font-heading-bold-6">
+    <div className="relative bg-lightsteelblue w-full h-[4160px] overflow-hidden text-left text-xl text-sienna font-heading-bold-6">
       <footer className="absolute w-[calc(100%_-_1px)] right-[1px] bottom-[-3px] left-[0px] h-[50px] text-center text-3xl text-black font-montserrat">
         <div className="absolute w-full right-[0px] bottom-[0px] left-[0px] bg-gainsboro h-[50px]" />
         <h6 className="m-0 absolute w-[calc(100%_-_1215px)] bottom-[0px] left-[608px] font-normal font-inherit whitespace-pre-wrap flex items-center h-[50px] text-inherit">
@@ -293,7 +293,7 @@ const Relax = () => {
       />
       <div className="absolute w-full top-[108px] right-[0px] left-[0px] h-[594px] text-21xl">
         <img
-          className="absolute w-full top-[122.9px] right-[0px] left-[0px] max-w-full overflow-hidden h-[380.7px] object-cover"
+          className="absolute w-full top-[122.9px] right-[0px] left-[0px] max-w-full overflow-hidden h-[410px] object-cover"
           alt=""
           src="/waves@2x.png"
         />

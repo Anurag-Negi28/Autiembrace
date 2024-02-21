@@ -10,7 +10,7 @@ const Learn = () => {
   }, [navigate]);
 
   return (
-    <div className="relative [background:linear-gradient(180deg,_#b1e5f6,_rgba(111,_157,_172,_0))] w-full h-[1040px] overflow-hidden text-left text-3xs text-white font-heading-bold-6">
+    <div className="relative bg-lightsteelblue w-full h-[1040px] overflow-hidden text-left text-3xs text-white font-heading-bold-6">
       <h1 className="m-0 absolute top-[calc(50%_-_412px)] left-[19.58%] text-21xl leading-[40px] font-semibold font-inherit text-sienna">
         Discover
       </h1>
