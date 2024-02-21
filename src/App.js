@@ -14,6 +14,7 @@ import Learn from "./pages/Learn";
 import Relax from "./pages/Relax";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
+import ImageDisplay from './pages/ImageDisplay';
 
 function App() {
   const [color, setColor] = useState('#000000'); 
@@ -21,10 +22,9 @@ function App() {
   const [toolMode, setToolMode] = useState('pen'); 
   const [penSize, setPenSize] = useState(5); 
   const [eraserSize, setEraserSize] = useState(10);
-
   const location = useLocation();
   const pathname = location.pathname;
-
+  
   useEffect(() => {
     if (location.action !== 'POP') {
       window.scrollTo(0,   0);
@@ -85,6 +85,10 @@ function App() {
           title = "Relax";
           metaDescription = "";
           break;
+      case "/img":
+        title = "Img";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -158,6 +162,7 @@ function App() {
       <Route path="/rps" element={<RockPaperScissors />} />
       <Route path="/learn" element={<Learn />} />
       <Route path="/relax" element={<Relax />} />
+      <Route path="/img" element={<ImageDisplay />} />
     </Routes>
   );
 }
