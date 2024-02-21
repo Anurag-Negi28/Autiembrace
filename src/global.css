@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -13,4 +13,24 @@ body {
 ::before,
 ::after {
   border-width: 0;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
