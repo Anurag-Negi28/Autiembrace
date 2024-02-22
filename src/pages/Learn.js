@@ -6,7 +6,7 @@ const Learn = () => {
   const navigate = useNavigate();
 
   const onHomeGroupClick = useCallback(() => {
-    navigate("/");
+    navigate("/autiembrace");
   }, [navigate]);
 
   return (
