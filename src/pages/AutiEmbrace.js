@@ -218,8 +218,8 @@ const AutiEmbrace = () => {
             src="/phoneicon@2x.png"
           />
         </div>
-        <div className="absolute w-[calc(100%_-_593px)] top-[0px] right-[0px] left-[593px] h-[542px]">
-          <div className="absolute w-[calc(100%_-_360px)] top-[26px] right-[360px] left-[0px] rounded-31xl [background:linear-gradient(77.91deg,_#ff78a4,_rgba(184,_213,_195,_0))] h-[431px]" />
+        <div className="absolute w-[calc(95%_-_593px)] top-[0px] right-[0px] left-[593px] h-[542px]">
+          <div className="absolute w-[calc(100%_-_360px)] top-[26px] right-[360px] left-[0px] rounded-31xl [background:linear-gradient(77.91deg,_#ff78a4,_rgba(184,_213,_200,_0))] h-[431px]" />
           <h3 className="m-0 absolute w-[39.75%] top-[132px] left-[3.43%] text-inherit leading-[50px] font-normal font-inherit inline-block h-[325px]">
             <p className="[margin-block-start:0] [margin-block-end:15px]">
               😊😡😉
