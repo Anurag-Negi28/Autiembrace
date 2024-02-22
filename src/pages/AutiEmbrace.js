@@ -186,7 +186,7 @@ const AutiEmbrace = () => {
         </div>
       </div>
       <div className="absolute w-[calc(100%_+_260px)] top-[2590px] right-[-310px] left-[50px] h-[542px] text-21xl text-dimgray">
-        <div className="absolute w-[calc(100%_-_1129px)] top-[26px] right-[1129px] left-[0px] h-[431px]">
+        <div className="absolute w-[calc(95%_-_1129px)] top-[26px] right-[1129px] left-[0px] h-[431px]">
           <div className="absolute w-full top-[0px] right-[0px] left-[0px] rounded-31xl [background:linear-gradient(30.11deg,_#b8d5cb,_rgba(244,_255,_248,_0))] h-[431px]" />
           <h3 className="m-0 absolute w-[60.77%] top-[87px] left-[37.48%] text-inherit leading-[50px] font-normal font-inherit flex items-center h-[344px]">
             Wash your hands before eating food.
@@ -195,7 +195,7 @@ const AutiEmbrace = () => {
             Norms Navigator
           </h1>
           <img
-            className="absolute w-[35.73%] top-[154px] right-[64.27%] left-[0%] max-w-full overflow-hidden h-[202px] object-cover"
+            className="absolute w-[35.73%] top-[154px] right-[64.27%] left-[0%] max-w-full overflow-hidden h-[225px] object-cover"
             alt=""
             src="/phoneicon@2x.png"
           />
