@@ -110,7 +110,7 @@ const AutiEmbrace = () => {
           </button>
         </div>
         <img
-          className="absolute w-[calc(100%_-_435px)] top-[140px] right-[435px] left-[0px] max-w-full overflow-hidden h-[5px] object-contain"
+          className="absolute w-[calc(100%_-_435px)] top-[140px] right-[435px] left-[0px] max-w-full overflow-hidden h-[10px] object-contain"
           alt=""
           src="/Line-5.png"
         />
