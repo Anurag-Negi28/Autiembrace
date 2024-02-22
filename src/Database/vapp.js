@@ -1,4 +1,3 @@
-//vapp.js
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -6,7 +5,10 @@ var mongoose = require('mongoose');
 var videoSchema = require('./Vmodel.js'); 
 var fs = require('fs');
 var path = require('path');
+var cors = require('cors'); 
+
 app.set("view engine", "ejs");
+app.use(cors());
 
 mongoose.connect('mongodb+srv://Cyphers:Autiembrace@cluster0.vdsgquy.mongodb.net/Autiembrace?retryWrites=true&w=majority')
   .then(() => console.log("DB Connected"))

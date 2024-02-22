@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import VideoDisplay from './VideoDisplay.js'; 
 
 const Relax = () => {
   const [rectangleInputValue, setRectangleInputValue] = useState("");
@@ -50,6 +51,16 @@ const Relax = () => {
     if (anchor) {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
+  }, []);
+  const { apiUrl } = useParams(); 
+  const [showVideo, setShowVideo] = useState(false);
+
+  const onPlayVideoClick = useCallback(() => {
+    setShowVideo(true);
+  }, []);
+
+  const onCloseVideo = useCallback(() => {
+    setShowVideo(false);
   }, []);
 
   return (
@@ -106,6 +117,7 @@ const Relax = () => {
         alt=""
         src="/line-4.svg"
       />
+      
       <section className="absolute w-[calc(100%_-_377px)] top-[2120px] right-[116px] left-[261px] h-[1117px] text-left text-21xl text-sienna font-heading-bold-6">
         <h1
           className="m-0 absolute w-[calc(100%_-_17px)] top-[0px] left-[17px] text-inherit leading-[40px] font-semibold font-inherit inline-block"
@@ -127,13 +139,21 @@ const Relax = () => {
             <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
               Beach
             </b>
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
+            <button onClick={onPlayVideoClick} className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
               <img
                 className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
                 alt=""
                 src="/path-2.svg"
               />
-            </button>
+           </button>
+           {showVideo && (
+        <div>
+          <VideoDisplay apiUrl={`http://localhost:3007/api/videos/Ambinece-1`} />
+          <button onClick={onCloseVideo}>Close Video</button>
+        </div>
+      )}
+     
+
           </div>
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />

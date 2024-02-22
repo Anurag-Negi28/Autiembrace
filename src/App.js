@@ -91,6 +91,10 @@ function App() {
         title = "Img";
         metaDescription = "";
         break;
+        case "/api/videos/:apiUrl":
+          title = "Img";
+          metaDescription = "";
+          break;
     }
 
     if (title) {
@@ -165,6 +169,7 @@ function App() {
       <Route path="/learn" element={<Learn />} />
       <Route path="/relax" element={<Relax />} />
       <Route path="/img" element={<ImageDisplay />} />
+      <Route path="/api/videos/:apiUrl" component={Relax} />
     </Routes>
   );
 }

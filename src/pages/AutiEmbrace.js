@@ -8,8 +8,8 @@ import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
 const AutiEmbrace = () => {
   const [rectangleInputValue, setRectangleInputValue] = useState("");
   const navigate = useNavigate();
-  const [quote, setQuote] = useState("");
 
+  const [quote, setQuote] = useState("");
   useEffect(() => {
     fetchRandomQuote();
   }, []);
@@ -24,6 +24,24 @@ const AutiEmbrace = () => {
       setQuote(data.quote_text);
     } catch (error) {
       console.error("Error fetching quote:", error);
+    }
+  };
+
+  const [norm, setNorm] = useState("");
+  useEffect(() => {
+    fetchRandomNorm();
+  }, []);
+
+  const fetchRandomNorm = async () => {
+    try {
+      const response = await fetch("http://localhost:8082/api/social-norms/random");
+      if (!response.ok) {
+        throw new Error("Failed to fetch norm");
+      }
+      const data = await response.json();
+      setNorm(data.norm_description);
+    } catch (error) {
+      console.error("Error fetching norm:", error);
     }
   };
 
@@ -189,7 +207,7 @@ const AutiEmbrace = () => {
         <div className="absolute w-[calc(95%_-_1129px)] top-[26px] right-[1129px] left-[0px] h-[431px]">
           <div className="absolute w-full top-[0px] right-[0px] left-[0px] rounded-31xl [background:linear-gradient(30.11deg,_#b8d5cb,_rgba(244,_255,_248,_0))] h-[431px]" />
           <h3 className="m-0 absolute w-[60.77%] top-[87px] left-[37.48%] text-inherit leading-[50px] font-normal font-inherit flex items-center h-[344px]">
-            Wash your hands before eating food.
+            {norm}
           </h3>
           <h1 className="m-0 absolute w-[calc(100%_-_33px)] top-[27px] left-[23px] text-41xl leading-[60px] font-bold font-inherit inline-block [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
             Norms Navigator

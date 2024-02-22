@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getQuoteById } = require('./quoteController');
 const { client } = require('./db');
+
 router.get('/api/quotes/random', async (req, res) => {
   try {
     const database = client.db('Autiembrace');
