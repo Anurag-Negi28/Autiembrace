@@ -63,13 +63,22 @@ app.get('/api/videos/:name', (req, res) => {
       if (!video) {
         return res.status(404).send('Video not found');
       }
-      res.json(video);
+      if (video.video && video.video.data) {
+        res.setHeader('Content-Type', video.video.contentType);
+        res.setHeader('Content-Length', video.video.data.length);
+        res.send(video.video.data);
+      } else {
+        console.error('Video data is missing in the document');
+        res.status(500).send('An error occurred while fetching the video.');
+      }
     })
     .catch(err => {
       console.error(err);
       res.status(500).send('An error occurred while fetching the video.');
     });
 });
+
+
 var port = process.env.PORT || '3007';
 app.listen(port, err => {
   if (err) throw err;

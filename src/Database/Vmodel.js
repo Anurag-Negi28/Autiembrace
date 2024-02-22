@@ -1,22 +1,12 @@
-//Vmodel.js
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-const videoSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  desc: {
-    type: String,
-    required: false
-  },
+// Vmodel.js
+var mongoose = require('mongoose');
+var videoSchema = new mongoose.Schema({
+  name: String,
+  desc: String,
   video: {
     data: Buffer,
     contentType: String
   }
 });
 
-const Video = mongoose.model('Video', videoSchema);
-
-module.exports = Video;
+module.exports = mongoose.model('Video', videoSchema);
