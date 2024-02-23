@@ -1,6 +1,7 @@
 
 # Dependencies
 /node_modules
+/facial-emotion-recognition/emotion-recognition/node_modules
 
 # Production
 /build
