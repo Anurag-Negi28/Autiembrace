@@ -34,7 +34,9 @@ const AutiEmbrace = () => {
 
   const fetchRandomNorm = async () => {
     try {
-      const response = await fetch("http://localhost:8082/api/social-norms/random");
+      const response = await fetch(
+        "http://localhost:8082/api/social-norms/random"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch norm");
       }
@@ -135,10 +137,10 @@ const AutiEmbrace = () => {
       </div>
       <div className="absolute w-[99.93%] right-[0.07%] bottom-[0px] left-[0%] h-[431px] text-3xl">
         <footer className="absolute w-full right-[0%] bottom-[50px] left-[0%] [background:linear-gradient(180deg,_#b8c0d5,_rgba(193,_184,_213,_0))] [filter:blur(0px)] h-[381px]" />
-        <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute right-[125px] bottom-[192px] text-3xl font-montserrat text-black text-left inline-block w-[101px] h-[27px]">
+        <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute right-[105px] bottom-[192px] text-3xl font-montserrat text-black text-center inline-block w-[101px] h-[27px]">
           Submit
         </button>
-        <h3 className="m-0 absolute w-[32.38%] bottom-[361px] left-[59.21%] text-inherit font-normal font-inherit inline-block">
+        <h3 className="m-0 absolute w-[32.38%] bottom-[361px] left-[55.96%] text-inherit font-normal font-inherit inline-block">
           Want to share? Give us feedback
         </h3>
         <div className="absolute top-[92px] left-[365px] flex flex-col items-start justify-start gap-[2px] text-base">
@@ -167,22 +169,30 @@ const AutiEmbrace = () => {
             Twitter
           </a>
         </div>
-        <h3 className="m-0 absolute w-[9.8%] bottom-[361px] left-[25.36%] text-inherit font-normal font-inherit inline-block">
+        <h3 className="m-0 absolute w-[9.8%] bottom-[361px] left-[23.96%] text-inherit font-normal font-inherit inline-block">
           Contact
         </h3>
         <h3 className="m-0 absolute bottom-[361px] left-[122px] text-inherit font-normal font-inherit inline-block w-[223px]">
           AutiEmbrace
         </h3>
         <div className="absolute top-[92px] left-[122px] flex flex-col items-start justify-start gap-[2px] text-base">
-          <a className="[text-decoration:none] relative leading-[31px] text-[inherit] inline-block w-[121px]">
-            Home
-          </a>
-          <a className="[text-decoration:none] relative leading-[31px] text-[inherit] inline-block w-[121px]">
-            About
-          </a>
           <Link
             className="cursor-pointer [text-decoration:none] relative leading-[31px] text-[inherit] inline-block w-[121px]"
-            to="/landingpage"
+            to="/autiembrace"
+            onClick={onSignOutClick}
+          >
+            Home
+          </Link>
+          <Link
+            className="cursor-pointer [text-decoration:none] relative leading-[31px] text-[inherit] inline-block w-[121px]"
+            to="/"
+            onClick={onSignOutClick}
+          >
+            About
+          </Link>
+          <Link
+            className="cursor-pointer [text-decoration:none] relative leading-[31px] text-[inherit] inline-block w-[121px]"
+            to="/"
             onClick={onSignOutClick}
           >
             Sign out
@@ -209,7 +219,7 @@ const AutiEmbrace = () => {
           <h3 className="m-0 absolute w-[60.77%] top-[87px] left-[37.48%] text-inherit leading-[50px] font-normal font-inherit flex items-center h-[344px]">
             {norm}
           </h3>
-          <h1 className="m-0 absolute w-[calc(100%_-_33px)] top-[27px] left-[23px] text-41xl leading-[60px] font-bold font-inherit inline-block [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
+          <h1 className="m-0 absolute w-[calc(100%_-_33px)] top-[27px] left-[23px] text-41xl leading-[60px] font-bold font-54px inline-block [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
             Norms Navigator
           </h1>
           <img
