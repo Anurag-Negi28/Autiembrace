@@ -170,7 +170,7 @@ const Relax = () => {
         />
       )}
       <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-        Fireplace in Winters
+        Fireplace In Winters
       </b>
 
       <button
@@ -184,7 +184,7 @@ const Relax = () => {
         />
       </button>
     </div>
-
+    
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <img
@@ -203,8 +203,6 @@ const Relax = () => {
               />
             </button>
           </div>
-
-          
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <img
@@ -223,7 +221,6 @@ const Relax = () => {
               />
             </button>
           </div>
-          
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <img
