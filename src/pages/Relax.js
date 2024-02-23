@@ -1,13 +1,13 @@
-import { useState, useCallback, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import VideoDisplay from './VideoDisplay.js'; 
+import { useState, useCallback, useEffect, useRef} from "react";
+import { Link, useNavigate, useParams} from "react-router-dom";
+import VideoDisplay from "./VideoDisplay.js";
 
 const Relax = () => {
   const [rectangleInputValue, setRectangleInputValue] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     const scrollAnimElements = document.querySelectorAll(
-      "[data-animate-on-scroll]",
+      "[data-animate-on-scroll]"
     );
     const observer = new IntersectionObserver(
       (entries) => {
@@ -21,7 +21,7 @@ const Relax = () => {
       },
       {
         threshold: 0.15,
-      },
+      }
     );
 
     for (let i = 0; i < scrollAnimElements.length; i++) {
@@ -52,17 +52,37 @@ const Relax = () => {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   }, []);
-  const { apiUrl } = useParams(); 
   const [showVideo, setShowVideo] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
+  const videoRef = useRef(null); // Reference to the video element
 
   const onPlayVideoClick = useCallback(() => {
-    setShowVideo(true);
-  }, []);
+    if (showVideo) {
+      // If the video is playing, pause it and hide it
+      videoRef.current.pause();
+      setShowVideo(false);
+    } else {
+      // If the video is not playing, fetch the video URL and start playing it
+      const fetchVideoUrl = async (videoName) => {
+        try {
+          const response = await fetch(`http://localhost:3007/api/videos/${videoName}`);
+          if (!response.ok) {
+            throw new Error('Video not found');
+          }
+          const blob = await response.blob();
+          const objectURL = URL.createObjectURL(blob);
+          setVideoSrc(objectURL);
+          setShowVideo(true); // Make the video visible, replacing the image
+        } catch (error) {
+          console.error('Error fetching video:', error);
+        }
+      };
 
-  const onCloseVideo = useCallback(() => {
-    setShowVideo(false);
-  }, []);
+      fetchVideoUrl('Ambinece-1');
+    }
+  }, [showVideo]);
 
+  
   return (
     <div className="relative bg-lightsteelblue w-full h-[4160px] overflow-hidden text-left text-xl text-sienna font-heading-bold-6">
       <footer className="absolute w-[calc(100%_-_1px)] right-[1px] bottom-[-3px] left-[0px] h-[50px] text-center text-3xl text-black font-montserrat">
@@ -117,7 +137,7 @@ const Relax = () => {
         alt=""
         src="/line-4.svg"
       />
-      
+
       <section className="absolute w-[calc(100%_-_377px)] top-[2120px] right-[116px] left-[261px] h-[1117px] text-left text-21xl text-sienna font-heading-bold-6">
         <h1
           className="m-0 absolute w-[calc(100%_-_17px)] top-[0px] left-[17px] text-inherit leading-[40px] font-semibold font-inherit inline-block"
@@ -129,32 +149,42 @@ const Relax = () => {
           className="absolute w-[calc(100%_-_49px)] top-[82px] right-[49px] left-[0px] h-[1035px] [&.animate]:animate-[1s_ease_0s_1_normal_forwards_slide-in-top] opacity-[0] grid grid-rows-[repeat(2,479px)_] grid-cols-[repeat(2,485px)_] [grid-row-gap:77px] [grid-column-gap:44px] text-center text-16xl-1 font-montserrat"
           data-animate-on-scroll
         >
-          <div className="relative">
-            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-            <img
-              className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              alt=""
-              src="/beachimg@2x.png"
-            />
-            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-              Beach
-            </b>
-            <button onClick={onPlayVideoClick} className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
-              <img
-                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-                alt=""
-                src="/path-2.svg"
-              />
-           </button>
-           {showVideo && (
-        <div>
-          <VideoDisplay apiUrl={`http://localhost:3007/api/videos/Ambinece-1`} />
-          <button onClick={onCloseVideo}>Close Video</button>
-        </div>
+        
+      <div className="relative">
+      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+      {showVideo ? (
+        <video
+          ref={videoRef} 
+          className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
+          controls
+          autoPlay
+          loop 
+          src={videoSrc}
+          alt="Video Preview"
+        />
+      ) : (
+        <img
+          className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
+          alt=""
+          src="/beachimg@2x.png"
+        />
       )}
-     
+      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+        Fireplace in Winters
+      </b>
 
-          </div>
+      <button
+        onClick={onPlayVideoClick}   
+        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
+      >
+        <img
+          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+          alt=""
+          src="/path-2.svg"
+        />
+      </button>
+    </div>
+
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <img
@@ -173,6 +203,8 @@ const Relax = () => {
               />
             </button>
           </div>
+
+          
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <img
@@ -191,6 +223,7 @@ const Relax = () => {
               />
             </button>
           </div>
+          
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <img

@@ -15,6 +15,7 @@ import Relax from "./pages/Relax";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
 import ImageDisplay from './pages/ImageDisplay';
+import VideoPage from "./pages/VideoDisplay";
 
 function App() {
   const action = useNavigationType();
@@ -74,10 +75,9 @@ function App() {
         title = 'fghuiop';
         metaDescription = 'Play the memory game.';
         break;
-
       case '/rps': 
         title = 'Memory Game';
-        metaDescription = 'Play the memory game.';
+        metaDescription = 'rps game.';
         break;
       case "/learn":
           title = "Learn";
@@ -91,10 +91,10 @@ function App() {
         title = "Img";
         metaDescription = "";
         break;
-        case "/api/videos/:apiUrl":
-          title = "Img";
-          metaDescription = "";
-          break;
+      case "/video/:name":
+        title = "video";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -169,7 +169,7 @@ function App() {
       <Route path="/learn" element={<Learn />} />
       <Route path="/relax" element={<Relax />} />
       <Route path="/img" element={<ImageDisplay />} />
-      <Route path="/api/videos/:apiUrl" component={Relax} />
+      <Route path="/video/:name" element={<VideoPage />} />
     </Routes>
   );
 }
