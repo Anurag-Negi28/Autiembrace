@@ -69,7 +69,7 @@ const Relax = () => {
   const fetchVideoUrl = async (videoName) => {
     try {
       const response = await fetch(
-        `http://localhost:3007/api/videos/${videoName}`
+        `http://localhost:8080/api/videos/${videoName}`
       );
       if (!response.ok) {
         throw new Error("Video not found");

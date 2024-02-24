@@ -39,7 +39,7 @@ const AutiEmbrace = () => {
   const fetchRandomNorm = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8082/api/social-norms/random"
+        "http://localhost:8080/api/social-norms/random"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch norm");
