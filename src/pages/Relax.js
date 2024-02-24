@@ -52,33 +52,41 @@ const Relax = () => {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   }, []);
-  const [videoName, setVideoName] = useState("Ambinece-1");
-  const [showVideo, setShowVideo] = useState(true);
-  const [videoSrc, setVideoSrc] = useState("");
-  const videoRef = useRef(null);
+  const [videoUrls, setVideoUrls] = useState({
+    coffee: "",
+    shop: "",
+    // Add more video names as needed
+  });
+
+  // Function to fetch video URL from the API
+  const fetchVideoUrl = async (videoName) => {
+    try {
+      const response = await fetch(`http://localhost:3007/api/videos/${videoName}`);
+      if (!response.ok) {
+        throw new Error('Video not found');
+      }
+      const blob = await response.blob();
+      const objectURL = URL.createObjectURL(blob);
+      return objectURL;
+    } catch (error) {
+      console.error('Error fetching video:', error);
+      return "";
+    }
+  };
 
   useEffect(() => {
-    const fetchVideoUrl = async () => {
-      try {
-        const response = await fetch(`http://localhost:3007/api/videos/${videoName}`);
-        if (!response.ok) {
-          throw new Error('Video not found');
-        }
-        const blob = await response.blob();
-        const objectURL = URL.createObjectURL(blob);
-        setVideoSrc(objectURL);
-      } catch (error) {
-        console.error('Error fetching video:', error);
-      }
+    // Fetch video URLs for each video
+    const fetchVideos = async () => {
+      const urls = {
+        coffee: await fetchVideoUrl("Ambinece-1"),
+        shop: await fetchVideoUrl("Ambinece-2"),
+        // Add more video names as needed
+      };
+      setVideoUrls(urls);
     };
 
-    fetchVideoUrl();
-  }, [videoName]);
-
-  // Function to update videoName based on user interaction
-  const switchVideo = (newVideoName) => {
-    setVideoName(newVideoName);
-  };
+    fetchVideos();
+  }, []);
 
   return (
     <div className="relative bg-lightsteelblue w-full h-[4160px] overflow-hidden text-left text-xl text-sienna font-heading-bold-6">
@@ -146,33 +154,22 @@ const Relax = () => {
           className="absolute w-[calc(100%_-_49px)] top-[82px] right-[49px] left-[0px] h-[1035px] [&.animate]:animate-[1s_ease_0s_1_normal_forwards_slide-in-top] opacity-[0] grid grid-rows-[repeat(2,479px)_] grid-cols-[repeat(2,485px)_] [grid-row-gap:77px] [grid-column-gap:44px] text-center text-16xl-1 font-montserrat"
           data-animate-on-scroll
         >
-        
       <div className="relative">
       <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-      {showVideo ? (
-        <video
-        ref={videoRef}
-        className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-        controls
-        autoPlay
-        loop
-        muted
-        src={videoSrc}
-        alt="Video Preview"
-      />
-      ) : (
-        <img
-          className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-          alt=""
-          src="/beachimg@2x.png"
-        />
-      )}
+      <video
+              className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.coffee}
+              alt="Video Preview"
+            />
       <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
         Beach
       </b>
 
       <button
-         onClick={() => switchVideo("Ambinece-1")}  
         className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
       >
         <img
@@ -184,29 +181,20 @@ const Relax = () => {
     </div>
     <div className="relative">
       <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-      {showVideo ? (
-        <video
-          ref={videoRef} // Attach the ref to the video element
-          className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-          controls
-          autoPlay
-          loop // Set the video to loop
-          src={videoSrc}
-          alt="Video Preview"
-        />
-      ) : (
-        <img
-          className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-          alt=""
-          src="/beachimg@2x.png"
-        />
-      )}
+      <video
+              className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.shop}
+              alt="Video Preview"
+            />
       <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
         Coffee Shop
       </b>
 
       <button
-         onClick={() => switchVideo("Ambinece-2")}  
         className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
       >
         <img
