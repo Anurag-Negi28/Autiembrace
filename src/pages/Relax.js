@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect, useRef} from "react";
-import { Link, useNavigate, useParams} from "react-router-dom";
+import { useState, useCallback, useEffect, useRef } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import VideoDisplay from "./VideoDisplay.js";
 
 const Relax = () => {
@@ -61,15 +61,17 @@ const Relax = () => {
   // Function to fetch video URL from the API
   const fetchVideoUrl = async (videoName) => {
     try {
-      const response = await fetch(`http://localhost:3007/api/videos/${videoName}`);
+      const response = await fetch(
+        `http://localhost:3007/api/videos/${videoName}`
+      );
       if (!response.ok) {
-        throw new Error('Video not found');
+        throw new Error("Video not found");
       }
       const blob = await response.blob();
       const objectURL = URL.createObjectURL(blob);
       return objectURL;
     } catch (error) {
-      console.error('Error fetching video:', error);
+      console.error("Error fetching video:", error);
       return "";
     }
   };
@@ -154,9 +156,9 @@ const Relax = () => {
           className="absolute w-[calc(100%_-_49px)] top-[82px] right-[49px] left-[0px] h-[1035px] [&.animate]:animate-[1s_ease_0s_1_normal_forwards_slide-in-top] opacity-[0] grid grid-rows-[repeat(2,479px)_] grid-cols-[repeat(2,485px)_] [grid-row-gap:77px] [grid-column-gap:44px] text-center text-16xl-1 font-montserrat"
           data-animate-on-scroll
         >
-      <div className="relative">
-      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-      <video
+          <div className="relative">
+            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+            <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
               controls
               autoPlay
@@ -165,23 +167,21 @@ const Relax = () => {
               src={videoUrls.coffee}
               alt="Video Preview"
             />
-      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-        Beach
-      </b>
+            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+              Beach
+            </b>
 
-      <button
-        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
-      >
-        <img
-          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-          alt=""
-          src="/path-2.svg"
-        />
-      </button>
-    </div>
-    <div className="relative">
-      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-      <video
+            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
+              <img
+                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+                alt=""
+                src="/path-2.svg"
+              />
+            </button>
+          </div>
+          <div className="relative">
+            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+            <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
               controls
               autoPlay
@@ -190,20 +190,18 @@ const Relax = () => {
               src={videoUrls.shop}
               alt="Video Preview"
             />
-      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-        Coffee Shop
-      </b>
+            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+              Coffee Shop
+            </b>
 
-      <button
-        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
-      >
-        <img
-          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-          alt=""
-          src="/path-2.svg"
-        />
-      </button>
-    </div>
+            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
+              <img
+                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+                alt=""
+                src="/path-2.svg"
+              />
+            </button>
+          </div>
           <div className="relative">
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <img
