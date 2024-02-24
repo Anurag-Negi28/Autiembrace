@@ -53,9 +53,10 @@ const Relax = () => {
     }
   }, []);
   const [videoUrls, setVideoUrls] = useState({
-    coffee: "",
-    shop: "",
-    // Add more video names as needed
+    christmas: "",
+    room: "",
+    cafe:"",
+    picnic:"",
   });
 
   // Function to fetch video URL from the API
@@ -78,9 +79,10 @@ const Relax = () => {
     // Fetch video URLs for each video
     const fetchVideos = async () => {
       const urls = {
-        coffee: await fetchVideoUrl("Ambinece-1"),
-        shop: await fetchVideoUrl("Ambinece-2"),
-        // Add more video names as needed
+        christmas: await fetchVideoUrl("Ambinece-1"),
+        room: await fetchVideoUrl("Ambinece-2"),
+        cafe:await fetchVideoUrl("Ambinece-3"),
+        picnic:await fetchVideoUrl("Ambinece-4"),
       };
       setVideoUrls(urls);
     };
@@ -137,6 +139,7 @@ const Relax = () => {
           </div>
         </div>
       </section>
+      
       <img
         className="absolute top-[3301px] left-[calc(50%_-_450px)] max-h-full w-[900px]"
         alt=""
@@ -162,11 +165,11 @@ const Relax = () => {
               autoPlay
               loop
               muted
-              src={videoUrls.coffee}
+              src={videoUrls.christmas}
               alt="Video Preview"
             />
       <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-        Beach
+      christmas
       </b>
 
       <button
@@ -187,11 +190,11 @@ const Relax = () => {
               autoPlay
               loop
               muted
-              src={videoUrls.shop}
+              src={videoUrls.picnic}
               alt="Video Preview"
             />
       <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-        Coffee Shop
+      Sunny Picnic
       </b>
 
       <button
@@ -204,43 +207,58 @@ const Relax = () => {
         />
       </button>
     </div>
-          <div className="relative">
-            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-            <img
+    
+    <div className="relative">
+      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+      <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              alt=""
-              src="/bedroomimg@2x.png"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.cafe}
+              alt="Video Preview"
             />
-            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-              COZY bedroom
-            </b>
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
-              <img
-                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-                alt=""
-                src="/path-2.svg"
-              />
-            </button>
-          </div>
-          <div className="relative">
-            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-            <img
+      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+      coffee cafe
+      </b>
+
+      <button
+        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
+      >
+        <img
+          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+          alt=""
+          src="/path-2.svg"
+        />
+      </button>
+    </div>
+    <div className="relative">
+      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+      <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              alt=""
-              src="/libraryimg@2x.png"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.room}
+              alt="Video Preview"
             />
-            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-              Library
-            </b>
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
-              <img
-                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-                alt=""
-                src="/path-2.svg"
-              />
-            </button>
-          </div>
-        </div>
+      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+        Cozy Study Room
+      </b>
+
+      <button
+        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
+      >
+        <img
+          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+          alt=""
+          src="/path-2.svg"
+        />
+      </button>
+    </div>
+      </div>
       </section>
       <Link
         className="cursor-pointer [text-decoration:none] absolute top-[38px] left-[32px] leading-[20px] font-semibold text-[inherit]"
