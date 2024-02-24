@@ -3,8 +3,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import VideoDisplay from "./VideoDisplay.js";
 
 const Relax = () => {
-  const [rectangleInputValue, setRectangleInputValue] = useState("");
   const navigate = useNavigate();
+  const navigateToVideo = useCallback((videoName) => {
+    navigate(`/video/${videoName}`);
+  }, [navigate]);
+  const [rectangleInputValue, setRectangleInputValue] = useState("");
   useEffect(() => {
     const scrollAnimElements = document.querySelectorAll(
       "[data-animate-on-scroll]"
@@ -89,12 +92,11 @@ const Relax = () => {
         picnic:await fetchVideoUrl("Ambinece-4"),
         ani:await fetchVideoUrl("Animated"),
         Neon:await fetchVideoUrl("Neon"),
-        sci1:await fetchVideoUrl("Scenic-1"),
+        sci1:await fetchVideoUrl("Scenic-2"),
         sci2:await fetchVideoUrl("Scenic-1"),
       };
       setVideoUrls(urls);
     };
-
     fetchVideos();
   }, []);
 
@@ -169,7 +171,7 @@ const Relax = () => {
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
+              
               autoPlay
               loop
               muted
@@ -180,7 +182,7 @@ const Relax = () => {
               christmas
             </b>
 
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
+            <button onClick={() => navigateToVideo('Ambinece-1')} className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
               <img
                 className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
                 alt=""
@@ -192,7 +194,6 @@ const Relax = () => {
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
               autoPlay
               loop
               muted
@@ -203,7 +204,7 @@ const Relax = () => {
               Sunny Picnic
             </b>
 
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
+            <button onClick={() => navigateToVideo('Ambinece-4')}className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
               <img
                 className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
                 alt=""
@@ -216,7 +217,6 @@ const Relax = () => {
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
               autoPlay
               loop
               muted
@@ -227,7 +227,7 @@ const Relax = () => {
               coffee cafe
             </b>
 
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
+            <button onClick={() => navigateToVideo('Ambinece-3')}className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
               <img
                 className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
                 alt=""
@@ -239,7 +239,7 @@ const Relax = () => {
             <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
             <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
+              
               autoPlay
               loop
               muted
@@ -250,7 +250,7 @@ const Relax = () => {
               Cozy Study Room
             </b>
 
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
+            <button onClick={() => navigateToVideo('Ambinece-2')} className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
               <img
                 className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
                 alt=""
@@ -283,7 +283,6 @@ const Relax = () => {
       <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
       <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
               autoPlay
               loop
               muted
@@ -295,6 +294,7 @@ const Relax = () => {
       </b>
 
       <button
+      onClick={() => navigateToVideo('Animated')}
         className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
       >
         <img
@@ -308,7 +308,6 @@ const Relax = () => {
       <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
       <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
               autoPlay
               loop
               muted
@@ -320,6 +319,7 @@ const Relax = () => {
       </b>
 
       <button
+      onClick={() => navigateToVideo('Scenic-2')}
         className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
       >
         <img
@@ -334,7 +334,6 @@ const Relax = () => {
       <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
       <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
               autoPlay
               loop
               muted
@@ -344,8 +343,8 @@ const Relax = () => {
       <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
       Scenic-1
       </b>
-
       <button
+      onClick={() => navigateToVideo('Scenic-1')}
         className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
       >
         <img
@@ -359,7 +358,6 @@ const Relax = () => {
       <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
       <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              controls
               autoPlay
               loop
               muted
@@ -371,6 +369,7 @@ const Relax = () => {
       </b>
 
       <button
+      onClick={() => navigateToVideo('Neon')}
         className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
       >
         <img

@@ -1,52 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const VideoPage = () => {
-  const { name } = useParams();
-  const [videoSrc, setVideoSrc] = useState(null);
-  const videoRef = useRef(null); 
+  const { videoName } = useParams();
+  const [videoUrl, setVideoUrl] = useState('');
 
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const response = await fetch(`http://localhost:3007/api/videos/${name}`);
+        const response = await fetch(`http://localhost:3007/api/videos/${videoName}`);
         if (!response.ok) {
           throw new Error('Video not found');
         }
         const blob = await response.blob();
         const objectURL = URL.createObjectURL(blob);
-        setVideoSrc(objectURL);
+        setVideoUrl(objectURL);
       } catch (error) {
         console.error('Error fetching video:', error);
       }
     };
 
     fetchVideo();
-  }, [name]);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.addEventListener('play', () => {
-        if (videoRef.current.requestFullscreen) {
-          videoRef.current.requestFullscreen();
-        } else if (videoRef.current.mozRequestFullScreen) {
-          videoRef.current.mozRequestFullScreen();
-        } else if (videoRef.current.webkitRequestFullscreen) { 
-          videoRef.current.webkitRequestFullscreen();
-        } else if (videoRef.current.msRequestFullscreen) { 
-          videoRef.current.msRequestFullscreen();
-        }
-      });
-    }
-  }, []);
-
-  if (!videoSrc) {
-    return <div>Loading video...</div>;
-  }
+  }, [videoName]);
 
   return (
     <div>
-      <video ref={videoRef} controls autoPlay src={videoSrc} alt="Video" />
+      {videoUrl && <video src={videoUrl} controls loop />}
     </div>
   );
 };

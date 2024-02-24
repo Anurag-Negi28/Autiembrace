@@ -169,7 +169,10 @@ function App() {
       <Route path="/learn" element={<Learn />} />
       <Route path="/relax" element={<Relax />} />
       <Route path="/img" element={<ImageDisplay />} />
-      <Route path="/video/:name" element={<VideoPage />} />
+      <Route path="/video/:videoName" element={<VideoPage />} />
+
+
+
     </Routes>
   );
 }
