@@ -11,7 +11,7 @@ async function downloadVideo() {
     if (!client.isConnected()) {
       await client.connect();
     }
-
+    
     // Get the database and GridFSBucket instance
     const db = client.db(dbName);
     const bucket = new GridFSBucket(db);

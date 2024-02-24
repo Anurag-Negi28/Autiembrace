@@ -72,7 +72,7 @@ const Relax = () => {
   const fetchVideoUrl = async (videoName) => {
     try {
       const response = await fetch(
-        `http://localhost:3007/api/videos/${videoName}`
+        `http://localhost:8080/api/videos/${videoName}`
       );
       if (!response.ok) {
         throw new Error("Video not found");
@@ -401,7 +401,7 @@ const Relax = () => {
       />
       <div className="absolute w-full top-[108px] right-[0px] left-[0px] h-[594px] text-21xl">
         <img
-          className="absolute w-full top-[122.9px] right-[0px] left-[0px] max-w-full overflow-hidden h-[410px] object-cover"
+          className="absolute w-full top-[90px] right-[0px] left-[0px] max-w-full overflow-hidden h-[410px] object-cover"
           alt=""
           src="/waves@2x.png"
         />
