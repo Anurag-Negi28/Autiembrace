@@ -55,17 +55,12 @@ const Relax = () => {
   const [videoUrls, setVideoUrls] = useState({
     christmas: "",
     room: "",
-<<<<<<< HEAD
     cafe:"",
     picnic:"",
     Animated:"",
     Neon:"",
     Sci1:"",
     sci2:"",
-=======
-    cafe: "",
-    picnic: "",
->>>>>>> 1899485ccfe2b04c2d7b0d6c289ee7ae6984ad33
   });
 
   const fetchVideoUrl = async (videoName) => {
