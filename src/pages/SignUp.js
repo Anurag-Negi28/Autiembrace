@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 
 async function createUser(data) {
   try {
-    const response = await fetch("http://localhost:8000/create", {
+    const response = await fetch("https://dummy-firebase-6ul2fojl6q-el.a.run.app/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

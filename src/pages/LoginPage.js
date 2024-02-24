@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 
 async function getUserById(id) {
   try {
-    const response = await fetch(`http://localhost:8000/read/${id}`);
+    const response = await fetch(`https://dummy-firebase-6ul2fojl6q-el.a.run.app/read/${id}`);
     const responseData = await response.text();
     return responseData;
   } catch (error) {
