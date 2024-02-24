@@ -16,7 +16,7 @@ const Learn = () => {
       </h1>
       <Link
         className="[text-decoration:none] absolute w-[50.35%] top-[176px] right-[30.07%] left-[19.58%] h-[366px] text-[15px] text-[inherit]"
-        to="https://basichumanbehavior"
+        to="http://localhost:8080/api/videos/basic-human-nature"
       >
         <div className="absolute w-full top-[0px] right-[0%] left-[0%] rounded-xl bg-darkcyan h-[366px]" />
         <img
@@ -83,9 +83,8 @@ const Learn = () => {
       </Link>
       <Link
         className="[text-decoration:none] absolute w-[17.99%] top-[659px] right-[62.43%] left-[19.58%] h-[313px] text-[inherit]"
-        to="https://basichumannature"
-        target="_blank"
-      >
+        to="http://localhost:8080/api/videos/basic-human-nature"
+       >
         <div className="absolute w-full top-[0px] right-[0%] left-[0%] rounded-xl bg-gray-400 h-[313px]" />
         <img
           className="absolute w-full top-[0px] right-[0%] left-[0%] max-w-full overflow-hidden h-40 object-cover"
@@ -123,7 +122,7 @@ const Learn = () => {
       </Link>
       <Link
         className="[text-decoration:none] absolute w-[17.99%] top-[659px] right-[23.54%] left-[58.47%] h-[313px] text-[inherit]"
-        to="https://ai"
+        to="http://localhost:8080/api/videos/embrace-yourself"
       >
         <div className="absolute w-full top-[0px] right-[0%] left-[0%] rounded-xl bg-gray-400 h-[313px]" />
         <img
@@ -162,7 +161,7 @@ const Learn = () => {
       </Link>
       <Link
         className="[text-decoration:none] absolute h-[calc(100%_-_727px)] w-[17.99%] top-[659px] right-[4.17%] bottom-[68px] left-[77.85%] text-[inherit]"
-        to="https://planning"
+        to="http://localhost:8080/api/videos/embrace-yourself"
       >
         <div className="absolute h-full w-full top-[0px] right-[0%] bottom-[0px] left-[0%] rounded-xl bg-gray-400" />
         <img
@@ -201,7 +200,7 @@ const Learn = () => {
       </Link>
       <Link
         className="[text-decoration:none] absolute w-[17.99%] top-[659px] right-[42.99%] left-[39.03%] h-[313px] text-[inherit]"
-        to="https://embraceyourself"
+        to="http://localhost:8080/api/videos/embrace-yourself"
       >
         <div className="absolute w-full top-[0px] right-[0%] left-[0%] rounded-xl bg-gray-400 h-[313px]" />
         <img
