@@ -3,11 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import React, { useState, useEffect } from "react";
 import Todo from "../components/Todo";
+import { useLocation } from "react-router-dom";
 import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
 
 const AutiEmbrace = () => {
   const [rectangleInputValue, setRectangleInputValue] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const userData = location.state?.userData || {};
+  console.log(userData);
 
   const [quote, setQuote] = useState("");
   useEffect(() => {
@@ -59,7 +63,7 @@ const AutiEmbrace = () => {
         <h1 className="m-0 absolute w-[32.94%] top-[0px] left-[9.36%] text-inherit leading-[60px] font-bold font-inherit flex items-center h-[431px]">
           <span className="w-full">
             <p className="[margin-block-start:0] [margin-block-end:15px]">
-              Hi [user name],
+              Hi, {userData.userData}
             </p>
             <p className="m-0">Let’s spread some happiness !</p>
           </span>

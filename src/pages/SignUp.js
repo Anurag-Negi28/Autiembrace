@@ -17,8 +17,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 
+async function createUser(data) {
+  try {
+    const response = await fetch("http://localhost:8000/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const responseData = await response.json();
+    console.log(responseData);
+    return responseData;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState("");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +48,14 @@ const SignUp = () => {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
+
+        //Add user to database
+        const userData = {
+          email: email,
+          username: username,
+        };
+
+        createUser(userData);
         navigate("/-login-page");
       })
       .catch((error) => {
@@ -113,6 +139,7 @@ const SignUp = () => {
             color="primary"
             size="medium"
             placeholder="username"
+            onChange={(e) => setUsername(e.target.value)}
             variant="outlined"
             sx={{ "& .MuiInputBase-root": { height: "50px" }, width: "500px" }}
           />

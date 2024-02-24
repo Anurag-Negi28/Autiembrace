@@ -17,25 +17,44 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 
+async function getUserById(id) {
+  try {
+    const response = await fetch(`http://localhost:8000/read/${id}`);
+    const responseData = await response.text();
+    return responseData;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed up
-        const user = userCredential.user;
-        navigate("/autiembrace");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
-  };
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      
+      // Signed up
+      const user = userCredential.user;
+  
+      // Fetch username
+      const userId = email;
+  
+      // Assuming getUserById is an asynchronous function that returns a promise
+      let userData = await getUserById(userId);
+      userData = {userData};
+      console.log(userData);
+  
+      navigate("/autiembrace", { state: { userData } });
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    }
+  };  
 
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPasswordClick = () => {
