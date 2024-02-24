@@ -90,17 +90,12 @@ const Relax = () => {
       const urls = {
         christmas: await fetchVideoUrl("Ambinece-1"),
         room: await fetchVideoUrl("Ambinece-2"),
-<<<<<<< HEAD
         cafe:await fetchVideoUrl("Ambinece-3"),
         picnic:await fetchVideoUrl("Ambinece-4"),
         ani:await fetchVideoUrl("Animated"),
         Neon:await fetchVideoUrl("Neon"),
         sci1:await fetchVideoUrl("Scenic-1"),
         sci2:await fetchVideoUrl("Scenic-1"),
-=======
-        cafe: await fetchVideoUrl("Ambinece-3"),
-        picnic: await fetchVideoUrl("Ambinece-4"),
->>>>>>> 1899485ccfe2b04c2d7b0d6c289ee7ae6984ad33
       };
       setVideoUrls(urls);
     };
