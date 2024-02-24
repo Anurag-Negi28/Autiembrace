@@ -57,9 +57,12 @@ const Relax = () => {
     room: "",
     cafe:"",
     picnic:"",
+    Animated:"",
+    Neon:"",
+    Sci1:"",
+    sci2:"",
   });
 
-  // Function to fetch video URL from the API
   const fetchVideoUrl = async (videoName) => {
     try {
       const response = await fetch(`http://localhost:3007/api/videos/${videoName}`);
@@ -76,13 +79,16 @@ const Relax = () => {
   };
 
   useEffect(() => {
-    // Fetch video URLs for each video
     const fetchVideos = async () => {
       const urls = {
         christmas: await fetchVideoUrl("Ambinece-1"),
         room: await fetchVideoUrl("Ambinece-2"),
         cafe:await fetchVideoUrl("Ambinece-3"),
         picnic:await fetchVideoUrl("Ambinece-4"),
+        ani:await fetchVideoUrl("Animated"),
+        Neon:await fetchVideoUrl("Neon"),
+        sci1:await fetchVideoUrl("Scenic-1"),
+        sci2:await fetchVideoUrl("Scenic-1"),
       };
       setVideoUrls(urls);
     };
@@ -139,7 +145,7 @@ const Relax = () => {
           </div>
         </div>
       </section>
-      
+
       <img
         className="absolute top-[3301px] left-[calc(50%_-_450px)] max-h-full w-[900px]"
         alt=""
@@ -260,6 +266,7 @@ const Relax = () => {
     </div>
       </div>
       </section>
+
       <Link
         className="cursor-pointer [text-decoration:none] absolute top-[38px] left-[32px] leading-[20px] font-semibold text-[inherit]"
         to="/autiembrace"
@@ -274,86 +281,112 @@ const Relax = () => {
         <h1 className="m-0 absolute w-[calc(100%_-_17px)] top-[0px] left-[17px] text-inherit leading-[40px] font-semibold font-inherit inline-block">
           Visuals
         </h1>
-        <div
-          className="absolute w-[calc(100%_-_49px)] top-[82px] right-[49px] left-[0px] h-[1035px] [&.animate]:animate-[1s_ease_0s_1_normal_forwards_slide-in-top] opacity-[0] grid grid-rows-[repeat(2,479px)] grid-cols-[repeat(2,485px)] [grid-row-gap:77px] [grid-column-gap:44px] text-center text-16xl-1 font-montserrat"
+         <div
+          className="absolute w-[calc(100%_-_49px)] top-[82px] right-[49px] left-[0px] h-[1035px] [&.animate]:animate-[1s_ease_0s_1_normal_forwards_slide-in-top] opacity-[0] grid grid-rows-[repeat(2,479px)_] grid-cols-[repeat(2,485px)_] [grid-row-gap:77px] [grid-column-gap:44px] text-center text-16xl-1 font-montserrat"
           data-animate-on-scroll
         >
-          <div className="relative">
-            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-            <img
+      <div className="relative">
+      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+      <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              alt=""
-              src="/animateimg@2x.png"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.ani}
+              alt="Video Preview"
             />
-            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-              Animate
-            </b>
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
-              <img
-                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-                alt=""
-                src="/path-2.svg"
-              />
-            </button>
-          </div>
-          <div className="relative">
-            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-            <img
+      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+      animated
+      </b>
+
+      <button
+        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
+      >
+        <img
+          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+          alt=""
+          src="/path-2.svg"
+        />
+      </button>
+    </div>
+    <div className="relative">
+      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+      <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              alt=""
-              src="/forestimg@2x.png"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.sci2}
+              alt="Video Preview"
             />
-            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-              Forest
-            </b>
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
-              <img
-                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-                alt=""
-                src="/path-2.svg"
-              />
-            </button>
-          </div>
-          <div className="relative">
-            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-            <img
+      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+      Scenic-2
+      </b>
+
+      <button
+        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
+      >
+        <img
+          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+          alt=""
+          src="/path-2.svg"
+        />
+      </button>
+    </div>
+    
+    <div className="relative">
+      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+      <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              alt=""
-              src="/glacierimg@2x.png"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.sci1}
+              alt="Video Preview"
             />
-            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-              Glaciers
-            </b>
-            <a
-              className="[text-decoration:none] absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl bg-mediumpurple h-24"
-              href="https://giphy.com/embed/rWl4BrqKpI4YsgXUM0/video"
-            >
-              <img
-                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-                alt=""
-                src="/path-2.svg"
-              />
-            </a>
-          </div>
-          <div className="relative">
-            <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
-            <img
+      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+      Scenic-1
+      </b>
+
+      <button
+        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
+      >
+        <img
+          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+          alt=""
+          src="/path-2.svg"
+        />
+      </button>
+    </div>
+    <div className="relative">
+      <div className="absolute w-full top-[147.3px] right-[0px] left-[0px] rounded-35xl [background:linear-gradient(0deg,_#f7d2e8,_rgba(247,_210,_232,_0))] h-[331.7px]" />
+      <video
               className="absolute w-[calc(100%_-_179.6px)] top-[0px] right-[90.6px] left-[89px] rounded-150xl max-w-full overflow-hidden h-[291.2px] object-cover"
-              alt=""
-              src="/skyimg@2x.png"
+              controls
+              autoPlay
+              loop
+              muted
+              src={videoUrls.Neon}
+              alt="Video Preview"
             />
-            <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
-              Night Sky
-            </b>
-            <button className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24">
-              <img
-                className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
-                alt=""
-                src="/path-2.svg"
-              />
-            </button>
-          </div>
-        </div>
+      <b className="absolute w-full top-[313.9px] left-[0px] uppercase flex items-center justify-center h-[37px]">
+        Neon
+      </b>
+
+      <button
+        className="cursor-pointer [border:none] p-0 bg-mediumpurple absolute w-[calc(100%_-_381px)] top-[370px] right-[190px] left-[191px] rounded-81xl h-24"
+      >
+        <img
+          className="absolute top-[calc(50%_-_27px)] left-[calc(50%_-_18px)] rounded-12xs w-[52px] h-[54px]"
+          alt=""
+          src="/path-2.svg"
+        />
+      </button>
+    </div>
+      </div>
       </section>
       <img
         className="absolute top-[2056.5px] left-[calc(50%_-_450px)] max-h-full w-[900px]"
