@@ -156,7 +156,7 @@ const EmotionDetection = () => {
               position: "absolute",
               right: 100,
               width: 500,
-              top: 60,
+              top: 100,
               backgroundColor: "#6A7784", // Add a light gray background
               padding: "20px", // Add some padding for readability
               borderRadius: "20px", // Rounded corners
