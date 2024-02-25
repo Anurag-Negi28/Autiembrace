@@ -50,11 +50,33 @@ const AutiEmbrace = () => {
       console.error("Error fetching norm:", error);
     }
   };
-
+  const [recommendedMovies, setRecommendedMovies] = useState([]);
+  const handleTryItClick = () => {
+    setShowEmotionDetection(true);
+  };
   const onSignOutClick = useCallback(() => {
     navigate("/");
   }, [navigate]);
+  const handleGenerateClick = async () => {
+    try {
+        const response = await fetch("http://localhost:8000/recommend", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ movie_name: rectangleInputValue }),
+        });
 
+        if (!response.ok) {
+            throw new Error("Failed to get movie recommendations");
+        }
+
+        const data = await response.json();
+        setRecommendedMovies(data.recommended_movies);
+    } catch (error) {
+        console.error("Error getting movie recommendations:", error);
+    }
+};
   return (
     <div className="w-full relative bg-cadetblue h-[3520px] overflow-hidden text-left text-41xl text-black font-montserrat">
       <Navbar />
@@ -112,10 +134,11 @@ const AutiEmbrace = () => {
             Suggestions 😊
           </h3>
           <textarea
-            className="[border:none] bg-gainsboro h-[184px] [outline:none] absolute top-[73px] right-[0px] rounded-xl w-[367px]"
-            placeholder="    Your movie suggestions are here!!"
-            rows={10}
-          />
+          className="[border:none] bg-gainsboro h-[184px] [outline:none] absolute top-[73px] right-[0px] rounded-xl w-[367px]"
+          placeholder="    Your movie suggestions are here!!"
+          rows={10}
+          value={recommendedMovies.join('\n')}
+        />
         </div>
         <div className="absolute top-[153px] left-[72px] w-[367px] h-[202px]">
           <h3 className="m-0 absolute top-[0px] left-[4px] text-inherit leading-[36px] font-normal font-inherit flex items-center w-[363px] h-[66px]">
@@ -128,10 +151,13 @@ const AutiEmbrace = () => {
             value={rectangleInputValue}
             onChange={(event) => setRectangleInputValue(event.target.value)}
           />
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[167px] left-[210px] w-[157px] h-[35px]">
-            <div className="absolute top-[0px] left-[0px] rounded-xl bg-powderblue-100 w-[157px] h-[35px]" />
-            <b className="absolute top-[0px] left-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[157px] h-[35px]">{`Generate>>`}</b>
-          </button>
+
+
+<button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[167px] left-[210px] w-[157px] h-[35px]" 
+onClick={handleGenerateClick}>
+  <div className="absolute top-[0px] left-[0px] rounded-xl bg-powderblue-100 w-[157px] h-[35px]" />
+  <b className="absolute top-[0px] left-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[157px] h-[35px]">{`Generate>>`}</b>
+</button>
         </div>
         <img
           className="absolute w-[calc(100%_-_435px)] top-[140px] right-[435px] left-[0px] max-w-full overflow-hidden h-[10px] object-contain"
@@ -267,7 +293,9 @@ const AutiEmbrace = () => {
               src="/emotionrecognition@2x.png"
             />
           </div>
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[392px] right-[458px] w-[131px] h-[39px]">
+          <button 
+            onClick={() => navigate('/emotion-recognition')}
+          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[392px] right-[458px] w-[131px] h-[39px]">
             <div className="absolute top-[0px] right-[0px] rounded-xl bg-powderblue-100 w-[131px] h-[39px]" />
             <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[131px] h-[39px]">{`Try it >>`}</b>
           </button>

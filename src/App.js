@@ -21,6 +21,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEraser } from "@fortawesome/free-solid-svg-icons";
 import ImageDisplay from "./pages/ImageDisplay";
 import VideoPage from "./pages/VideoDisplay";
+import EmotionDetection from './components/EmotionDetection';
 
 function App() {
   const action = useNavigationType();
@@ -189,6 +190,7 @@ function App() {
       <Route path="/relax" element={<Relax />} />
       <Route path="/img" element={<ImageDisplay />} />
       <Route path="/video/:videoName" element={<VideoPage />} />
+      <Route path="/emotion-recognition" element={<EmotionDetection />} />
     </Routes>
   );
 }
