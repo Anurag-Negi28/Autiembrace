@@ -132,7 +132,6 @@ const AutiEmbrace = () => {
 
 <button
   className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[167px] left-[210px] w-[157px] h-[35px]"
-  onClick={() => navigate('/emotion-recognition')}
 >
   <div className="absolute top-[0px] left-[0px] rounded-xl bg-powderblue-100 w-[157px] h-[35px]" />
   <b className="absolute top-[0px] left-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[157px] h-[35px]">{`Generate>>`}</b>
@@ -272,7 +271,9 @@ const AutiEmbrace = () => {
               src="/emotionrecognition@2x.png"
             />
           </div>
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[392px] right-[458px] w-[131px] h-[39px]">
+          <button 
+            onClick={() => navigate('/emotion-recognition')}
+          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[392px] right-[458px] w-[131px] h-[39px]">
             <div className="absolute top-[0px] right-[0px] rounded-xl bg-powderblue-100 w-[131px] h-[39px]" />
             <b className="absolute top-[0px] right-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[131px] h-[39px]">{`Try it >>`}</b>
           </button>

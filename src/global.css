@@ -15,8 +15,6 @@ body {
   border-width: 0;
 }
 
-
-
 @keyframes slide-in-top {
   0% {
     transform: translateY(-200px);
