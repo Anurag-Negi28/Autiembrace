@@ -28,41 +28,6 @@ const Slide = ({
         alt=""
         src={imageDimensions}
       />
-      <div className="flex flex-row items-center justify-center p-2 gap-[8px]">
-        <div className="flex flex-row items-start justify-start p-2">
-          <img className="w-6 relative h-6" alt="" src="/arrow-left.svg" />
-        </div>
-        <div className="flex flex-row items-center justify-start p-2 gap-[10px]">
-          <img
-            className="w-4 relative h-4"
-            alt=""
-            src="/dot-indictaor--1.svg"
-          />
-          <img
-            className="w-3 relative h-3 opacity-[0.5]"
-            alt=""
-            src="/dot-indictaor--2.svg"
-          />
-          <img
-            className="w-3 relative h-3 opacity-[0.5]"
-            alt=""
-            src="/dot-indictaor--2.svg"
-          />
-          <img
-            className="w-3 relative h-3 opacity-[0.5]"
-            alt=""
-            src="/dot-indictaor--2.svg"
-          />
-          <img
-            className="w-3 relative h-3 opacity-[0.5]"
-            alt=""
-            src="/dot-indictaor--2.svg"
-          />
-        </div>
-        <div className="flex flex-row items-start justify-start p-2">
-          <img className="w-6 relative h-6" alt="" src="/arrow-right.svg" />
-        </div>
-      </div>
     </div>
   );
 };
