@@ -85,9 +85,9 @@ const AutiEmbrace = () => {
         <h1 className="m-0 absolute w-[32.94%] top-[0px] left-[9.36%] text-inherit leading-[60px] font-bold font-inherit flex items-center h-[431px]">
           <span className="w-full">
             <p className="[margin-block-start:0] [margin-block-end:15px]">
-              Hi, {userData.userData}
+              Hi {userData.userData}, 
             </p>
-            <p className="m-0">Let’s spread some happiness !</p>
+            <p className="m-0">Your presence brings joy to our Community!</p>
           </span>
         </h1>
         <div className="absolute w-[calc(100%_-_732px)] top-[0px] right-[0px] left-[732px] rounded-31xl bg-powderblue-100 [filter:blur(250px)] h-[908px]" />
