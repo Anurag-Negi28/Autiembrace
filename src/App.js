@@ -190,10 +190,7 @@ function App() {
       <Route path="/relax" element={<Relax />} />
       <Route path="/img" element={<ImageDisplay />} />
       <Route path="/video/:videoName" element={<VideoPage />} />
-<<<<<<< HEAD
       <Route path="/emotion-recognition" element={<EmotionDetection />} />
-=======
->>>>>>> 4925e98a537c9b9b6431c9939642a7b4ce894cbb
     </Routes>
   );
 }
