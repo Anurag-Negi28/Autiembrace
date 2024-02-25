@@ -40,7 +40,7 @@ const EmotionDetection = () => {
 
       const face = await net.estimateFaces(video);
 
-      var socket = new WebSocket("ws://localhost:8082");
+      var socket = new WebSocket("ws://localhost:8002");
       socket.addEventListener("open", function (event) {
         console.log("WebSocket connection opened:", event);
       });
