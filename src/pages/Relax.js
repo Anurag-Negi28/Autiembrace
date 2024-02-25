@@ -136,20 +136,19 @@ const Relax = () => {
             >
               <source src="/forest-with-small-river-birds-and-nature-field-recording-6735.mp3" />
             </audio>
+
             <video
-              className="absolute w-[calc(100%_-_397px)] top-[0px] right-[0px] left-[397px] rounded-35xl h-[250px]"
+              className="absolute w-[calc(72%_-_290px)] top-[0px] right-[0px] left-[397px] rounded-35xl h-[250px]"
               controls
-            >
-              <source src="/1118347_macro_4k_pattern_3840x2160.mp4" />
-            </video>
+              src="/WhatsApp Video 2024-02-26 at 03.34.54_db9159e7.mp4"
+            ></video>
           </div>
           <div className="relative">
             <video
-              className="absolute w-[calc(100%_-_397px)] top-[0px] right-[0px] left-[397px] rounded-35xl h-[250px]"
+              className="absolute w-[calc(72%_-_290px)] top-[0px] right-[0px] left-[397px] rounded-35xl h-[250px]"
               controls
-            >
-              <source src="/1118510_macro_4k_pulse_3840x2160.mp4" />
-            </video>
+              src="/WhatsApp Video 2024-02-26 at 03.34.55_5d9e7e8f.mp4"
+            ></video>
             <audio
               className="absolute w-[calc(100%_-_667px)] top-[0px] right-[667px] left-[0px] rounded-35xl h-[250px] bg-[url('/public/rectangle-1399@3x.png')] bg-cover bg-no-repeat bg-[top] hover:animate-[1s_ease_0s_1_normal_none_scale-up] hover:opacity-[1]"
               controls
