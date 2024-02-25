@@ -128,10 +128,15 @@ const AutiEmbrace = () => {
             value={rectangleInputValue}
             onChange={(event) => setRectangleInputValue(event.target.value)}
           />
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[167px] left-[210px] w-[157px] h-[35px]">
-            <div className="absolute top-[0px] left-[0px] rounded-xl bg-powderblue-100 w-[157px] h-[35px]" />
-            <b className="absolute top-[0px] left-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[157px] h-[35px]">{`Generate>>`}</b>
-          </button>
+
+
+<button
+  className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[167px] left-[210px] w-[157px] h-[35px]"
+  onClick={() => navigate('/emotion-recognition')}
+>
+  <div className="absolute top-[0px] left-[0px] rounded-xl bg-powderblue-100 w-[157px] h-[35px]" />
+  <b className="absolute top-[0px] left-[0px] text-xl leading-[27.5px] flex font-montserrat text-dimgray text-center items-center justify-center w-[157px] h-[35px]">{`Generate>>`}</b>
+</button>
         </div>
         <img
           className="absolute w-[calc(100%_-_435px)] top-[140px] right-[435px] left-[0px] max-w-full overflow-hidden h-[10px] object-contain"

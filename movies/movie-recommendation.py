@@ -22,7 +22,7 @@ app.add_middleware(
 class MovieInput(BaseModel):
     movie_name: str
 
-movies_data = pd.read_csv('/Users/kartik/Desktop/movies/movies.csv')
+movies_data = pd.read_csv('movies/movies.csv')
 selected_features = ['genres', 'keywords', 'tagline', 'cast', 'director']
 
 for feature in selected_features:
