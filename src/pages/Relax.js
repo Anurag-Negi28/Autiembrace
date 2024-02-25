@@ -58,6 +58,13 @@ const Relax = () => {
       anchor.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   }, []);
+
+  const onVisualsGroupClick = useCallback(() => {
+    const anchor = document.querySelector("[data-scroll-to='visuals']");
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }, []);
   const [videoUrls, setVideoUrls] = useState({
     christmas: "",
     room: "",
@@ -284,7 +291,10 @@ const Relax = () => {
         className="absolute top-[795px] left-[calc(50%_-_450px)] max-h-full w-[900px]"
         alt=""
       />
-      <section className="absolute w-[calc(100%_-_377px)] top-[858px] right-[116px] left-[261px] h-[1117px] text-left text-21xl text-sienna font-heading-bold-6">
+      <section
+        className="absolute w-[calc(100%_-_377px)] top-[858px] right-[116px] left-[261px] h-[1117px] text-left text-21xl text-sienna font-heading-bold-6"
+        data-scroll-to="visuals"
+      >
         <h1 className="m-0 absolute w-[calc(100%_-_17px)] top-[0px] left-[17px] text-inherit leading-[40px] font-semibold font-inherit inline-block">
           Visuals
         </h1>
@@ -459,7 +469,10 @@ const Relax = () => {
                 src="/group-112@2x.png"
               />
             </button>
-            <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[59px] left-[0px] w-[138px] h-8">
+            <button
+              className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[59px] left-[0px] w-[138px] h-8"
+              onClick={onVisualsGroupClick}
+            >
               <div className="absolute top-[8px] left-[56.6px] text-sm tracking-[0.3px] leading-[15.46px] font-heading-bold-6 text-sienna text-left inline-block w-[81.4px] h-4">
                 Visuals
               </div>
