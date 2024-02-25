@@ -28,8 +28,12 @@ AutiEmbrace recognizes the significance of relaxation and sensory stimulation fo
 **To preview and run the project on your system:**
   1) Clone the repository locally on your system.
   1) Open project folder in <a href="https://code.visualstudio.com/download">Visual Studio Code</a>
-  2) In the terminal, run `npm install` and `npm install firebase mongodb nodemon mongoose cors @fortawesome/fontawesome-svg-core`
-  3) Run `npm start` to view the project in the browser
+  2) In the terminal, run `npm install`, `npm install firebase firebase-admin mongodb nodemon mongoose cors @fortawesome/fontawesome-svg-core` and `pip install uvicorn 
+     tensorflow fer scikit-learn opencv-python numpy pandas`
+  3) Then move inside the `src` directory and run `node Server.js` to start the main server.
+  4) Further move inside the `src/components` directory and run `uvicorn emotion-detection:app --host  0.0.0.0 --port  8082` and move inside `src/pages` and run `uvicorn 
+     fastapi_script:app --host 0.0.0.0 --port 8080 --reload` to start the servers for both ML models.
+  5) Run `npm start` to view the project in the browser
 
 Note: Please ensure you have installed <code><a href="https://nodejs.org/en/download/">nodejs</a></code>
   
