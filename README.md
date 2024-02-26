@@ -31,8 +31,8 @@ AutiEmbrace recognizes the significance of relaxation and sensory stimulation fo
   2) In the terminal, run `npm install`, `npm install firebase firebase-admin mongodb nodemon mongoose cors @fortawesome/fontawesome-svg-core @tensorflow/tfjs @tensorflow-models/blazeface` and `pip install uvicorn 
      tensorflow fer scikit-learn opencv-python numpy pandas fastapi`
   3) Then move inside the `src` directory and run `node Server.js` to start the main server.
-  4) Further move inside the `src/components` directory and run `uvicorn emotion-detection:app --host  0.0.0.0 --port  8082` and move inside `src/pages` and run `uvicorn 
-     fastapi_script:app --host 0.0.0.0 --port 8080 --reload` to start the servers for both ML models.
+  4) Further move inside the `src/components` directory and run `uvicorn emotion-detection:app --host  0.0.0.0 --port  8002` and move inside `src/pages` and run `uvicorn 
+     fastapi_script:app --host 0.0.0.0 --port 8084 --reload` to start the servers for both ML models.
   5) Run `npm start` to view the project in the browser
 
 Note: Please ensure you have installed <code><a href="https://nodejs.org/en/download/">nodejs</a></code>
