@@ -6,7 +6,7 @@ const Gamee1111 = ({ propRight, propLeft, propTop,apiUrl  }) => {
   const navigate = useNavigate();
 
   const handleImageClick = () => {
-    navigate("/");
+    navigate("/rps");
   };
 
   const game9DrawStyle = useMemo(() => {
