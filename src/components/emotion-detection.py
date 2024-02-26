@@ -32,15 +32,14 @@ app.add_middleware(
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
-    await websocket.accept()  # Accept the WebSocket connection
+    await websocket.accept()  
     try:
         while True:
-            data = await websocket.receive_text()  # Receive data
-            # Process the data...
-            # For demonstration, echo the received data back to the client
+            data = await websocket.receive_text()  
+            
             await websocket.send_text(f"Message text was: {data}")
     except WebSocketDisconnect:
-        # Handle the disconnection
+       
         await websocket.close()
         print("WebSocket disconnected")
 
