@@ -122,7 +122,7 @@ const Learn = () => {
       </Link>
       <Link
         className="[text-decoration:none] absolute w-[17.99%] top-[659px] right-[23.54%] left-[58.47%] h-[313px] text-[inherit]"
-        to="http://localhost:8080/api/videos/embrace-yourself"
+        to="http://localhost:8080/api/videos/computer-ai"
       >
         <div className="absolute w-full top-[0px] right-[0%] left-[0%] rounded-xl bg-gray-400 h-[313px]" />
         <img
@@ -161,7 +161,7 @@ const Learn = () => {
       </Link>
       <Link
         className="[text-decoration:none] absolute h-[calc(100%_-_727px)] w-[17.99%] top-[659px] right-[4.17%] bottom-[68px] left-[77.85%] text-[inherit]"
-        to="http://localhost:8080/api/videos/embrace-yourself"
+        to="http://localhost:8080/api/videos/Priyanshi's edu vid"
       >
         <div className="absolute h-full w-full top-[0px] right-[0%] bottom-[0px] left-[0%] rounded-xl bg-gray-400" />
         <img
